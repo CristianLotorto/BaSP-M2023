@@ -22,62 +22,68 @@
     <nav>
         <ul>
 
-            <li><button>HOME</button></li>
-            <li><button>SIGN UP</button></li>
-            <li><button>LOG IN</button></li>
-            <li><button>INFO</button></li>
+            <li><a href="" target="_blank">HOME</a></li>
+            <li><a href="" target="_blank">SIGN UP</a></li>
+            <li><a href="" target="_blank">LOG IN</a></li>
+            <li><a href="" target="_blank">INFO</a></li>
 
         </ul>
 
-        <address>
-
-            <h3>CONTACT US</h3>
+        <section>
             
-            <ul>
+            <h3>CONTACT US</h3>
 
-                <li> 
-                    <img src="../assets/img/letterIcon.png" alt="letter icon"> 
+            <address>
 
-                    <span>
-                        information@untitled.tld
-                    </span> 
-                </li>
-                
-                <li> 
-                    <img src="../assets/img/smartPhoneIcon.png" alt="phone icon"> 
+                <ul>
 
-                    <span>
-                        (000) 000-0000
-                    </span> 
-                </li>
+                    <li> 
+                        <img src="../assets/img/letterIcon.png" alt="letter icon"> 
 
-                <li>
-                    <img src="../assets/img/addressIcon.png" alt="address icon"> 
+                        <span>
+                            information@untitled.tld
+                        </span> 
+                    </li>
+                    
+                    <li> 
+                        <img src="../assets/img/smartPhoneIcon.png" alt="phone icon"> 
 
-                    <span>
-                        1234 Somewhere Road #8254Nashville, TN 00000-0000
-                    </span> 
-                </li>
-            </ul>
+                        <span>
+                            (000) 000-0000
+                        </span> 
+                    </li>
 
-        </address>
+                    <li>
+                        <img src="../assets/img/addressIcon.png" alt="address icon"> 
+
+                        <span>
+                            1234 Somewhere Road #8254Nashville, TN 00000-0000
+                        </span> 
+                    </li>
+                </ul>
+
+            </address>
+        </section>
     </nav>
 
     <main>
-        <section>
-            <article>
-                <h2>Get Fit, Get Strong</h2>
 
+        <section>
+
+            <h2>Get Fit, Get Strong</h2>
+                        
+            <article>
                 <h3>Your Ultimate Gym Experience Starts Here!</h3>
                 
                 <figure><img src="../assets/img/Lifter.png" alt="lifter image"></figure>
-
+                
                 <p>
                     Welcome to our gym landing page! We offer a wide range of fitness classes 
                     and state-of-the-art equipment to help you reach your fitness goals. Our expert trainers 
                     are here to guide and motivate you every step of the way. Join us today and start your 
                     journey to a healthier, stronger you!
                 </p>
+                
             </article>
         </section>
 
@@ -131,6 +137,30 @@
                 </p>
             </article>
         </section>
+
+        <section>
+            <h2>You have questions, ask away and get your answers</h3>
+
+            <form action="POST">
+                <input type="text" placeholder="Name">
+                <input type="text" placeholder="Surname">
+                <input type="email" placeholder="E-mail address">
+
+                <select name="question motive">
+
+                    <option value="" selected>Select a motive</option>
+                    <option value="costs of membership">Membership costs</option>
+                    <option value="become member">Become member</option>
+
+                </select>
+                <textarea name="questions" cols="30" rows="10" placeholder="Your message"></textarea>
+
+                <input type="submit">
+                <input type="reset" value="Clear">
+            </form>
+        </section>
+
+
     </main>
     
     <footer>
