@@ -11,7 +11,7 @@ So far, landing page has a responsive design with three sizes:
 
 So it's going to be used in every kind of devices.
 
-You can find information about different services, buttons for ***Log In***, if you are member and ***Sign In*** if you aren't part of the MegaRocket community yet, but you want to be.
+You can find information about different services, buttons for ***Log In***, if you are member and ***Sign Up*** if you aren't part of the MegaRocket community yet, but you want to be.
 ## Author
 - Cristian Lotorto
  
