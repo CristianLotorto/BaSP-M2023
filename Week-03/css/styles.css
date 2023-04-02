@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@800&display=swap');
 
 /* Variables */
 /* ----------------------------------------------------------- */
@@ -180,6 +180,56 @@ li {
     width: 190px;
     overflow-wrap: break-word;
     margin: 0 0 55px 30px;
+}
+
+/* ----------------------------------------------------------- */
+
+
+
+
+/* Get-Fit Section */
+/* ----------------------------------------------------------- */
+.get-fit-section {
+    height: 471px;
+    padding-top: 36px;
+}
+
+.get-fit-section >
+h2, article {
+    margin-left: 84px;
+}
+
+.get-fit-title {
+    font-family: 'Mulish', sans-serif;
+    font-size: 42px;
+    font-weight: 800;
+}
+
+.get-fit-paragraph {
+    display: inline-block;
+    width: 1034px;
+    height: 247px;
+    font-size: 24px;
+    line-height: 39px;
+}
+
+.get-fit-paragraph
+p {
+    margin-bottom: 17px;
+    font-weight: 300;
+}
+
+.get-fit-paragraph
+h3 {
+    margin-bottom: 40px;
+    margin-top: 9px;
+    font-weight: 600;
+}
+
+.get-fit-img {
+    float: right;
+    margin-top: 25px;
+    margin-right: 80px;
 }
 
 /* ----------------------------------------------------------- */
