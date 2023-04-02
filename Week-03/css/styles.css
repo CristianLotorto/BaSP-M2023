@@ -1,0 +1,185 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
+
+/* Variables */
+/* ----------------------------------------------------------- */
+
+:root {
+    --primary-dark: #373867;
+    --primary-light-green: #AACE9B;
+    --background-gray: #D9D9D9;
+    --background-navbar: #E5F2ED;
+    --background-navbar-links:#51A884;
+    --text-light: #fff;
+    --text-dark: #000;
+    --background-info-title:#88A47C; 
+}
+
+/* ----------------------------------------------------------- */
+
+
+
+
+/* Element Selectors */
+/* ----------------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    width: 1512px;
+}
+
+header {
+    width: 1512px;
+    height: 157px;
+}
+
+
+aside {
+    width: 427px;
+    height: 1068px;
+    padding: 127px 0 0 0;
+    background-color: var(--background-navbar);
+}
+
+address {
+    margin-top: 24px;
+}
+
+h1 {
+    float: right;
+    width: 206px;
+    margin: 53px 85px 0 0;
+}
+
+/* ----------------------------------------------------------- */
+
+
+
+
+/* General Classes */
+/* ----------------------------------------------------------- */
+
+.font-roboto {
+    font-family: 'Roboto', sans-serif;
+}
+
+.font-color-black {
+    color: var(--text-dark);
+}
+
+.font-color-white {
+    color: var(--text-light);
+}
+
+.dark-background {
+    background-color: var(--primary-dark);
+}
+
+.green-background {
+    background-color: var(--primary-light-green);
+}
+
+.gray-background {
+    background-color: var(--background-gray);
+}
+
+/* ----------------------------------------------------------- */
+
+
+
+
+/* Header */
+/* ----------------------------------------------------------- */
+
+.burger-icon {
+    width: 30px;
+    height: 25px;
+    margin: 65px 0 0 34px;
+}
+
+.main-logo {
+    width: 206px;
+    height: 42px;
+}
+
+/* ----------------------------------------------------------- */
+
+
+
+
+/* NavBar */
+/* ----------------------------------------------------------- */
+
+.nav-links 
+li {
+    width: 370px;
+    height: 67px;
+    margin-bottom: 30px;
+    padding-top: 13px;
+    background-color: var(--background-navbar-links);
+    border: solid 1px #000;
+    text-align: center;
+    list-style-type: none;
+}
+
+.nav-links >
+li >
+a {
+    color: var(--text-light);
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 32px;
+}
+
+.contact-us {
+    width: 370px;
+    height: 409px;
+    margin-left: 27px;
+    border: solid 1px #000;
+    padding: 15px;
+    background-color: var(--background-navbar-links);
+}
+
+.contact-us
+h3 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 32px;
+    font-weight: 400;
+}
+
+.nav-images {
+    float: left;
+    width: 80px;
+    text-align: center;
+}
+
+.nav-images
+img {
+    margin-bottom: 30px;
+}
+
+.nav-contact {
+    float: right;
+    width: 258px;
+    height: 320px;
+    margin-top: 10px;
+    font-size: 24px;
+}
+
+.nav-contact
+li {
+    width: 190px;
+    overflow-wrap: break-word;
+    margin: 0 0 55px 30px;
+}
+
+/* ----------------------------------------------------------- */

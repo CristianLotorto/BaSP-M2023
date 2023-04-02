@@ -1,4 +1,4 @@
-# Become a Software Professional 2023
+# Mega Rocket!
 
 ## Week 02: Gym Management Web Application HTML
 We've written the HTML for the landing page (desktop size) that we'd designed a week ago, which is going to serve as structure to be stylize in future weeks.
