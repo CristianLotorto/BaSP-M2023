@@ -294,3 +294,84 @@ h3 {
 }
 
 /* ----------------------------------------------------------- */
+
+
+
+
+/* Form-Section */
+/* ----------------------------------------------------------- */
+
+.form-section {
+    height: 515px;
+}
+
+.form-section
+form {
+    height: 245px;
+}
+
+.form-title {
+    padding-top: 42px;
+    margin-bottom: 36px;
+    text-align: center;
+    font-size: 60px;
+    font-weight: 400;
+}
+
+.form-input{
+    display: inline-block;
+}
+
+.form-input
+input,
+select {
+    display: block;
+    width: 393px;
+    height: 37px;
+    padding-left: 12px;
+    margin: 0 97px 27px 118px;
+    border-radius: 4px;
+    border: 1px solid var(--background-navbar-links);
+    box-shadow: -1px 2px 0px 1px rgba(73,163,123,0.12) inset;
+    color: var(--background-navbar-links);
+    font-size: 14px;
+}
+
+.form-section
+textarea {
+    width: 745px;
+    height: 175px;
+    margin-bottom: 39px;
+    padding: 5px 0 0 12px;
+    border-radius: 4px;
+    border: 1px solid var(--background-navbar-links);
+    box-shadow: -1px 2px 0px 1px rgba(73,163,123,0.12) inset;
+    font-size: 14px;
+}
+
+.form-button{
+    position: relative;
+    left: 783px;
+    bottom: 20px;
+}
+
+.form-button
+button {
+    display:inline-block ;
+    width: 165px;
+    height: 70px;
+    border: 3px solid black;
+    border-radius: 25px;
+    margin-right: 220px;
+    background-color: var(--background-navbar-links);
+    color: var(--text-dark);
+    font-size: 36px;
+}
+
+.form-button
+button
+img {
+    margin-right: 13px;
+}
+
+/* ----------------------------------------------------------- */
