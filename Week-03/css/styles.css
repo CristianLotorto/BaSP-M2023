@@ -43,6 +43,9 @@ header {
 
 
 aside {
+    position: absolute;
+    top: -10px;
+    z-index: 10;
     width: 427px;
     height: 1068px;
     padding: 127px 0 0 0;
