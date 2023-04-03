@@ -474,3 +474,42 @@ ol, ul {
 }
 
 /* ----------------------------------------------------------- */
+
+
+
+
+/* Footer */
+/* ----------------------------------------------------------- */
+
+.footer {
+    height: 133px;
+    box-shadow: -3px 10px 5px -8px rgba(0,0,0,0.75) inset;
+    font-weight: 400;
+}
+
+.footer
+p {
+    position: relative;
+    top: 47px;
+    left: 45px;
+    float: left;
+    margin: 47px 0 0 45;
+    font-size: 32px;
+}
+
+.footer
+figure {
+    position: relative;
+    float: right;
+    top: 31px;
+    right: 104px;
+}
+
+.footer
+figure
+img {
+    margin-left: 52px;
+}
+
+
+/* ----------------------------------------------------------- */
