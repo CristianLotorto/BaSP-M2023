@@ -50,9 +50,9 @@ for HTML elements **flow ordering**.
 
     background-navbar: #E5F2ED;
 
-    background-navbar-links:#51A884;
+    background-navbar-links: #51A884;
 
-    background-info-title:#88A47C;
+    background-info-title: #88A47C;
 ```
  used mostly for **backgrounds** in specified sections of the landing page, 
  
@@ -70,7 +70,7 @@ used for **font colors**. The main font-family used was **Roboto**.
 ![image](https://user-images.githubusercontent.com/91099276/229694989-d12f1823-c481-445b-998c-b6c57223bfda.png)
 ![image](https://user-images.githubusercontent.com/91099276/229695134-da305652-3dc5-44b4-bd61-c81420a38105.png)
 
-Hope you like it!
+Hope you like it as we do!
 ## Author
 - Cristian Lotorto
  
