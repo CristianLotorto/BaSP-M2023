@@ -12,6 +12,65 @@ So far, landing page has a responsive design with three sizes:
 So it's going to be used in every kind of devices.
 
 You can find information about different services, buttons for ***Log In***, if you are member and ***Sign Up*** if you aren't part of the MegaRocket community yet, but you want to be.
+
+## Week 03: Gym Management Web Application stylized with CSS
+
+- We stylize the landing page (desktop size) with **CSS**, using **only**:
+
+```
+selector { 
+    display: inline-box
+}
+
+selector {
+    position: relative;
+    top: X px;
+    bottom: X px;
+    left: X px;
+    right: X px;
+}
+
+selector {
+    float: left;
+        or
+    float: right;
+}
+```
+
+for HTML elements **flow ordering**.
+
+- Color palette is composed by:
+
+```
+    primary-dark: #373867;
+
+    primary-light-green: #AACE9B;
+
+    background-gray: #D9D9D9;
+
+    background-navbar: #E5F2ED;
+
+    background-navbar-links:#51A884;
+
+    background-info-title:#88A47C;
+```
+ used mostly for **backgrounds** in specified sections of the landing page, 
+ 
+ - and:
+
+```
+    text-light: #fff;
+
+    text-dark: #000;
+```
+used for **font colors**. The main font-family used was **Roboto**.
+
+## Visual Results:
+
+![image](https://user-images.githubusercontent.com/91099276/229694989-d12f1823-c481-445b-998c-b6c57223bfda.png)
+![image](https://user-images.githubusercontent.com/91099276/229695134-da305652-3dc5-44b4-bd61-c81420a38105.png)
+
+Hope you like it!
 ## Author
 - Cristian Lotorto
  
