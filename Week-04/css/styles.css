@@ -1,0 +1,507 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@800&display=swap');
+
+/* Variables */
+/* ----------------------------------------------------------- */
+
+:root {
+    --primary-dark: #373867;
+    --primary-light-green: #AACE9B;
+    --background-gray: #D9D9D9;
+    --background-navbar: #E5F2ED;
+    --background-navbar-links:#51A884;
+    --text-light: #fff;
+    --text-dark: #000;
+    --background-info-title:#88A47C; 
+}
+
+/* ----------------------------------------------------------- */
+
+
+
+
+/* Element Selectors */
+/* ----------------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    width: 1512px;
+}
+
+header {
+    width: 1512px;
+    height: 157px;
+}
+
+
+aside {
+    width: 427px;
+    height: 1068px;
+    padding: 127px 0 0 0;
+    background-color: var(--background-navbar);
+}
+
+address {
+    margin-top: 24px;
+}
+
+h1 {
+    float: right;
+    width: 206px;
+    margin: 53px 85px 0 0;
+}
+
+/* ----------------------------------------------------------- */
+
+
+
+
+/* General Classes */
+/* ----------------------------------------------------------- */
+
+.font-roboto {
+    font-family: 'Roboto', sans-serif;
+}
+
+.font-color-black {
+    color: var(--text-dark);
+}
+
+.font-color-white {
+    color: var(--text-light);
+}
+
+.dark-background {
+    background-color: var(--primary-dark);
+}
+
+.green-background {
+    background-color: var(--primary-light-green);
+}
+
+.gray-background {
+    background-color: var(--background-gray);
+}
+
+
+.nav-links li, .contact-us h3, .nav-links > li > a, .nav-images,
+.info-section h3, .form-title, .business-section article h3 {
+    text-align: center;
+}
+
+.info-section article img, .info-section article p, .info-section h3,
+.art-become-member, .form-button, .activities, .black-memb, .classic-memb,
+.only-classes-memb, .business-section article ol, ul, .footer p, figure {
+    position: relative;
+}
+/* ----------------------------------------------------------- */
+
+
+
+
+/* Header */
+/* ----------------------------------------------------------- */
+
+.burger-icon {
+    width: 30px;
+    height: 25px;
+    margin: 65px 0 0 34px;
+}
+
+.main-logo {
+    width: 206px;
+    height: 42px;
+}
+
+/* ----------------------------------------------------------- */
+
+
+
+
+/* NavBar */
+/* ----------------------------------------------------------- */
+
+.nav-links 
+li {
+    width: 370px;
+    height: 67px;
+    margin-bottom: 30px;
+    padding-top: 13px;
+    background-color: var(--background-navbar-links);
+    border: solid 1px #000;
+    list-style-type: none;
+}
+
+.nav-links >
+li >
+a {
+    color: var(--text-light);
+    text-transform: uppercase;
+    font-size: 32px;
+}
+
+.contact-us {
+    width: 370px;
+    height: 409px;
+    margin-left: 27px;
+    border: solid 1px #000;
+    padding: 15px;
+    background-color: var(--background-navbar-links);
+}
+
+.contact-us
+h3 {
+    text-transform: uppercase;
+    font-size: 32px;
+    font-weight: 400;
+}
+
+.nav-images {
+    float: left;
+    width: 80px;
+}
+
+.nav-images
+img {
+    margin-bottom: 30px;
+}
+
+.nav-contact {
+    float: right;
+    width: 258px;
+    height: 320px;
+    margin-top: 10px;
+    font-size: 24px;
+}
+
+.nav-contact
+li {
+    width: 190px;
+    overflow-wrap: break-word;
+    margin: 0 0 55px 30px;
+}
+
+/* ----------------------------------------------------------- */
+
+
+
+
+/* Get Fit Section */
+/* ----------------------------------------------------------- */
+.get-fit-section {
+    height: 471px;
+    padding-top: 36px;
+}
+
+.get-fit-section >
+h2, article {
+    margin-left: 84px;
+}
+
+.get-fit-title {
+    font-family: 'Mulish', sans-serif;
+    font-size: 42px;
+    font-weight: 800;
+}
+
+.get-fit-paragraph {
+    display: inline-block;
+    width: 1034px;
+    height: 247px;
+    font-size: 24px;
+    line-height: 39px;
+}
+
+.get-fit-paragraph
+p {
+    margin-bottom: 17px;
+    font-weight: 300;
+}
+
+.get-fit-paragraph
+h3 {
+    margin-bottom: 40px;
+    margin-top: 9px;
+    font-weight: 600;
+}
+
+.get-fit-img {
+    float: right;
+    margin-top: 25px;
+    margin-right: 80px;
+}
+
+/* ----------------------------------------------------------- */
+
+
+
+
+/* Info Section */
+/* ----------------------------------------------------------- */
+
+.info-section {
+    height:691px ;
+    padding-top: 16px;
+    font-size: 28px;
+}
+
+.info-section
+article {
+    display: inline-block;
+    width: 624px;
+    height: 323px;
+}
+
+.info-section
+article
+img {
+    display: inline-block;
+    top: 10px;
+    right: 10px;
+    margin-right: 21px;
+}
+
+.info-section
+article
+p {
+    bottom: 25px;
+    padding-left: 140px;
+    overflow-wrap: break-word;
+    font-weight: 400;
+}
+
+.info-section
+h3 {
+    display: inline-block;
+    width: 400px;
+    padding: 16px 0;
+    bottom: 40px;
+    background-color: var(--background-info-title);
+    box-shadow: 0px 9px 5px -2px rgba(0,0,0,0.29);
+    border: solid 1px black;
+    border-radius: 5px;
+    font-weight: 600;
+}
+
+.art-become-member {
+    bottom: 36px;
+}
+
+/* ----------------------------------------------------------- */
+
+
+
+
+/* Form Section */
+/* ----------------------------------------------------------- */
+
+.form-section {
+    height: 515px;
+}
+
+.form-section
+form {
+    height: 245px;
+}
+
+.form-title {
+    padding-top: 42px;
+    margin-bottom: 36px;
+    font-size: 60px;
+    font-weight: 400;
+}
+
+.form-input{
+    display: inline-block;
+}
+
+.form-input
+input,
+select {
+    display: block;
+    width: 393px;
+    height: 37px;
+    padding-left: 12px;
+    margin: 0 97px 27px 118px;
+    border-radius: 4px;
+    border: 1px solid var(--background-navbar-links);
+    box-shadow: -1px 2px 0px 1px rgba(73,163,123,0.12) inset;
+    font-size: 14px;
+}
+
+::placeholder, select {
+    color: var(--background-navbar-links);
+}
+
+.form-section
+textarea {
+    width: 745px;
+    height: 175px;
+    margin-bottom: 39px;
+    padding: 5px 0 0 12px;
+    border-radius: 4px;
+    border: 1px solid var(--background-navbar-links);
+    box-shadow: -1px 2px 0px 1px rgba(73,163,123,0.12) inset;
+    font-size: 14px;
+}
+
+.form-button{
+    width: 600px;
+    left: 783px;
+    bottom: 20px;
+}
+
+.form-button
+button {
+    display:inline-block ;
+    width: 165px;
+    height: 70px;
+    border: 3px solid black;
+    border-radius: 25px;
+    background-color: var(--background-navbar-links);
+    color: var(--text-dark);
+    font-size: 36px;
+}
+
+.form-button
+button[type="reset"] {
+    margin-right: 220px;
+}
+
+.form-button
+button
+img {
+    margin-right: 13px;
+}
+
+/* ----------------------------------------------------------- */
+
+
+
+
+/* History Section */
+/* ----------------------------------------------------------- */
+
+.history-section {
+    height: 364px;
+    padding-top: 19px;
+    font-size: 50px;
+    font-weight: 600;
+    line-height: 60px;
+}
+
+.history-section
+h3 {
+    margin-left: -45px;
+    margin-bottom: 7px;
+    text-transform: uppercase;
+}
+
+/* ----------------------------------------------------------- */
+
+
+
+
+/* Business Section */
+/* ----------------------------------------------------------- */
+
+.business-section {
+    display: block;
+    height: 360px;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+.business-section
+article {
+    display: inline-block;
+}
+
+.business-section
+article
+h3 {
+    margin-bottom: 24px;
+    height: 40px;
+    border: 3px solid var(--primary-dark);
+    border-radius: 5px;
+    color: var(--primary-dark);
+}
+
+.activities {
+    top: 35px;
+    width: 210px;
+    height: 226px;
+    margin-left: 30px;
+    line-height: 35px;
+}
+
+.black-memb {
+    top: 56px;
+    width: 290px;
+    height: 257px;
+}
+
+.classic-memb {
+    bottom: 28px;
+    width: 310px;
+    height: 201px;
+}
+
+.only-classes-memb {
+    bottom: 56px;
+    width: 370px;
+    height: 145px;
+}
+
+.business-section
+article
+ol, ul {
+    left: 27px;
+}
+
+/* ----------------------------------------------------------- */
+
+
+
+
+/* Footer */
+/* ----------------------------------------------------------- */
+
+.footer {
+    height: 133px;
+    box-shadow: -3px 10px 5px -8px rgba(0,0,0,0.75) inset;
+    font-weight: 400;
+}
+
+.footer
+p {
+    top: 47px;
+    left: 45px;
+    float: left;
+    margin: 47px 0 0 45;
+    font-size: 32px;
+}
+
+.footer
+figure {
+    float: right;
+    top: 31px;
+    right: 104px;
+}
+
+.footer
+figure
+img {
+    margin-left: 52px;
+}
+
+
+/* ----------------------------------------------------------- */
