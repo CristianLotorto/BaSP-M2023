@@ -510,33 +510,34 @@ ul {
 /* Footer */
 /* ----------------------------------------------------------- */
 
-/* .footer {
-    height: 133px;
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
     box-shadow: -3px 10px 5px -8px rgba(0,0,0,0.75) inset;
     font-weight: 400;
 }
 
 .footer
 p {
-    top: 47px;
-    left: 45px;
-    float: left;
-    margin: 47px 0 0 45;
-    font-size: 32px;
+    margin: 17px 0 20px 0;
+    width: 297px;
+    font-size: 12px;
 }
 
 .footer
 figure {
-    float: right;
-    top: 31px;
-    right: 104px;
+    margin-left: 20px;
 }
 
 .footer
 figure
 img {
-    margin-left: 52px;
-} */
+    width: 34px;
+    height: 34px;
+    margin: 0 16px 10px 0;
+}
 
 
 /* ----------------------------------------------------------- */
