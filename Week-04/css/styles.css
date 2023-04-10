@@ -445,6 +445,9 @@ p {
 /* ----------------------------------------------------------- */
 
 .business-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
     font-size: 15px;
     font-weight: 400;
@@ -455,7 +458,7 @@ article {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    width: 300px;
 }
 
 .business-section
@@ -493,7 +496,7 @@ ul {
     flex-direction: column;
     align-items: flex-start;
     width: 100%;
-    padding-left: 70px ;
+    padding-left: 30px;
     line-height: 1.2;
 }
 
