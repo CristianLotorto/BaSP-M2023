@@ -689,7 +689,7 @@ div {
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
-    min-width: 590px;
+    width: 100%;
     gap: 30px;
 }
 
@@ -719,7 +719,8 @@ img {
 .info-section
 article
 p {
-    max-width: 230px;
+    min-width: 230px;
+    max-width: 350px;
     margin-top: 30px;
     text-align: justify;
     line-height: 2;
@@ -727,7 +728,8 @@ p {
 
 .info-section
 h3 {
-    width: 220px;
+    min-width: 220px;
+    max-width: 350px;
     padding: 12px 10px;
     margin-bottom: 0;
 }
@@ -786,6 +788,12 @@ ul {
     align-self: flex-start;
     font-size: 26px;
     padding-left: 0;
+}
+
+.black-memb,
+.classic-memb,
+.only-classes-memb {
+    padding-left: 50px;
 }
 
 .black-memb {
