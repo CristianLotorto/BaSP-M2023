@@ -684,12 +684,13 @@ img {
     padding: 20px;
 }
 
-.info-section
+.info-section >
 div {
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
-    gap: 10px;
+    min-width: 590px;
+    gap: 30px;
 }
 
 .info-section
@@ -697,7 +698,6 @@ article {
     display: flex;
     flex-direction: column;
     width: 45%;
-    gap: 20pxd;
     font-size: 15px;
 }
 
@@ -735,5 +735,64 @@ h3 {
 
 
 /* ----------------------------------------------------------- */
+
+
+
+
+/* History Section */
+/* ----------------------------------------------------------- */
+
+.history-section
+p {
+    max-width: 810px;
+}
+
+/* ----------------------------------------------------------- */
+
+
+
+
+/* Business Section */
+/* ----------------------------------------------------------- */
+
+.business-section
+article {
+    width: 590px;
+
+}
+
+.business-section
+article
+h2 {
+    font-size: 42px;
+}
+
+.business-section
+article
+h3 {
+    align-self: flex-start;
+    font-size: 26px;
+}
+
+.activities 
+ol {
+    align-self: center;
+    font-size: 30px;
+}
+
+.business-section
+article
+ul {
+    align-self: flex-start;
+    font-size: 26px;
+    padding-left: 0;
+}
+
+.black-memb {
+    margin-top: 50px;
+}
+
+/* ----------------------------------------------------------- */
+
 
 }
