@@ -47,17 +47,87 @@
 
     /* Header */
     /* ----------------------------------------------------------- */
-    
+
     .burger-icon {
         width: 36px;
         height: 29px;
         margin-left: 20px;
     }
-    
+
     .main-logo {
         width: 223px;
         height: 50px;
         margin-right: 25px;
+    }
+
+    /* ----------------------------------------------------------- */
+
+
+
+
+    /* NavBar */
+    /* ----------------------------------------------------------- */
+    
+    .nav-links
+    li {
+        width: 23vw;
+        height: 45px;
+        margin-bottom: 23px;
+    }
+    
+    .nav-links {
+        margin-top: 26px;
+    }
+    
+    .nav-links >
+    li >
+    a {
+        color: var(--text-light);
+        text-transform: uppercase;
+        font-size: 25px;
+    }
+    
+    .contact-us {
+        justify-content: center;
+        align-items: center;
+        width: 23vw;
+        height: 40%;
+        margin-top: 25px;
+        padding: 0;
+    }
+    
+    .contact-us
+    h3 {
+        text-align: center;
+        font-size: 25px;
+    }
+    
+    .contact-us img {
+        width: 46px;
+        height: 40px;
+        margin-right: 10px;
+    }
+    
+    .nav-contact {
+        width: 50%;
+        min-width: fit-content; 
+        max-width: fit-content;
+        height: 90%;
+        margin-left: -15px;
+        padding: 0 0 20px 0;
+        font-size: 20px;
+    }
+    
+    .nav-contact
+    li {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        text-align: left;
+        overflow-wrap: break-word;
+        width: 100%;
+        margin: 0;
+        padding: 0 0 0 35px;
     }
     
     /* ----------------------------------------------------------- */
