@@ -67,18 +67,18 @@
 
     /* NavBar */
     /* ----------------------------------------------------------- */
-    
+
     .nav-links
     li {
         width: 23vw;
         height: 45px;
         margin-bottom: 23px;
     }
-    
+
     .nav-links {
         margin-top: 26px;
     }
-    
+
     .nav-links >
     li >
     a {
@@ -86,7 +86,7 @@
         text-transform: uppercase;
         font-size: 25px;
     }
-    
+
     .contact-us {
         justify-content: center;
         align-items: center;
@@ -95,19 +95,19 @@
         margin-top: 25px;
         padding: 0;
     }
-    
+
     .contact-us
     h3 {
         text-align: center;
         font-size: 25px;
     }
-    
+
     .contact-us img {
         width: 46px;
         height: 40px;
         margin-right: 10px;
     }
-    
+
     .nav-contact {
         width: 50%;
         min-width: fit-content; 
@@ -117,7 +117,7 @@
         padding: 0 0 20px 0;
         font-size: 20px;
     }
-    
+
     .nav-contact
     li {
         flex-direction: row;
@@ -129,6 +129,47 @@
         margin: 0;
         padding: 0 0 0 35px;
     }
+
+    /* ----------------------------------------------------------- */
+
+
+
     
+    /* Get Fit Section */
+    /* ----------------------------------------------------------- */
+
+    .get-fit-section {
+        padding-bottom: 100px;
+    }
+
+    .get-fit-text-container {
+        max-width: 46vw;
+    }
+
+    .get-fit-text-container
+    p {
+        margin-bottom: 0;
+    }
+
+    .get-fit-title {
+        font-size: 42px;
+    }
+
+    .get-fit-paragraph {
+        text-align: justify;
+        font-size: 32px;
+    }
+
+    .get-fit-img {
+        width: auto;
+        margin-right: 33px;
+    }
+
+    .get-fit-img
+    img {
+        width: 267px;
+        height: 236px;
+    }
+
     /* ----------------------------------------------------------- */
 }
