@@ -172,4 +172,102 @@
     }
 
     /* ----------------------------------------------------------- */
+
+
+
+    /* Info Section */
+    /* ----------------------------------------------------------- */
+    
+    .info-section
+    article {
+        width: auto;
+        font-size: 22px;
+    }
+    
+    .info-section
+    article
+    p {
+        line-height: 1.5;
+    }
+        
+    /* ----------------------------------------------------------- */
+    
+    
+    
+    /* Form Section */
+    /* ----------------------------------------------------------- */
+    
+    .form-section {
+        padding-bottom: 40px;
+    }
+    
+    .form-section 
+    form {
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-start;
+        padding: 70px 10vw 0 10vw;
+        height: 100%;
+        gap: 30px;
+    }
+    
+    .form-title {
+        font-size: 45px;
+    }
+    
+    .form-input {
+        width: auto;
+    }
+    
+    .form-input
+    input,
+    select {
+        width: 27vw;
+        max-width: 393px;
+        height: 47px;
+        margin-bottom: 46px;
+    }
+    
+    .text-area-btn-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .form-section
+    textarea {
+        width: 35vw;
+        max-width:497px;
+        height: 330px;
+    }
+    
+    .form-button{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        width: 28vw;
+        min-width: 323px;
+        max-width: 446px;
+    }
+    
+    .form-button
+    button {
+        width: 151px;
+        height: 70px;
+        font-size: 36px;
+    }
+    
+    .form-button
+    button[type="reset"] {
+        margin-right: 0;
+    }
+    
+    .form-button
+    button
+    img {
+        width: 25px;
+        height: 25px;
+    }
+    
+    /* ----------------------------------------------------------- */
 }
