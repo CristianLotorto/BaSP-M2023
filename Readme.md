@@ -71,6 +71,17 @@ used for **font colors**. The main font-family used was **Roboto**.
 ![image](https://user-images.githubusercontent.com/91099276/229695134-da305652-3dc5-44b4-bd61-c81420a38105.png)
 
 Hope you like it as we do!
+
+## Week 04: Gym Management Web Application stylized Flexbox CSS
+
+- We stylize the landing page (mobile-first/responsive) with Flexbox **CSS** for HTML elements **flow ordering**.
+
+- We applied **media query** for different devices resolution styles setting.
+
+- We deployed [our project in github-pages](https://cristianlotorto.github.io/BaSP-M2023/Week-04/index.html) for easier access.
+
+Hope you like the results!
+
 ## Author
 - Cristian Lotorto
  
