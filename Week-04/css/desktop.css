@@ -177,30 +177,30 @@
 
     /* Info Section */
     /* ----------------------------------------------------------- */
-    
+
     .info-section
     article {
         width: auto;
         font-size: 22px;
     }
-    
+
     .info-section
     article
     p {
         line-height: 1.5;
     }
-        
+
     /* ----------------------------------------------------------- */
-    
-    
-    
+
+
+
     /* Form Section */
     /* ----------------------------------------------------------- */
-    
+
     .form-section {
         padding-bottom: 40px;
     }
-    
+
     .form-section 
     form {
         flex-direction: row;
@@ -210,15 +210,15 @@
         height: 100%;
         gap: 30px;
     }
-    
+
     .form-title {
         font-size: 45px;
     }
-    
+
     .form-input {
         width: auto;
     }
-    
+
     .form-input
     input,
     select {
@@ -227,20 +227,20 @@
         height: 47px;
         margin-bottom: 46px;
     }
-    
+
     .text-area-btn-container {
         display: flex;
         flex-direction: column;
         align-items: center;
     }
-    
+
     .form-section
     textarea {
         width: 35vw;
         max-width:497px;
         height: 330px;
     }
-    
+
     .form-button{
         display: flex;
         flex-direction: row;
@@ -249,25 +249,164 @@
         min-width: 323px;
         max-width: 446px;
     }
-    
+
     .form-button
     button {
         width: 151px;
         height: 70px;
         font-size: 36px;
     }
-    
+
     .form-button
     button[type="reset"] {
         margin-right: 0;
     }
-    
+
     .form-button
     button
     img {
         width: 25px;
         height: 25px;
     }
-    
+
+    /* ----------------------------------------------------------- */
+
+
+
+    /* History Section */
+    /* ----------------------------------------------------------- */
+
+    .history-section
+    article {
+        font-size: 50px;
+        font-weight: 600;
+        line-height: 1.3;
+    }
+
+    .history-section
+    h3 {
+        align-self: flex-start;
+        margin-left: 44px;
+    }
+
+    .history-section
+    p {
+        margin-bottom: 70px;
+        max-width: none;
+        padding: 0 80px;
+        text-align: justify;
+    }
+
+    /* ----------------------------------------------------------- */
+
+
+
+
+    /* Business Section */
+    /* ----------------------------------------------------------- */
+
+    .business-section {
+        padding: 70px 70px;
+        gap: 50px;
+    }
+
+    .business-section
+    article {
+        width: 30vw;
+        max-width: 330px;
+    }
+
+    .business-section
+    div {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        width: 60vw;
+        gap: 50px;
+    }
+
+    .business-section
+    article
+    h2 {
+        align-self: flex-start;
+        margin: 0 0 31px 0;
+        padding: 15px 20px;
+        border: 3px solid #373867;
+        border-radius: 5px;
+        font-size: 24px;
+    }
+
+    .business-section
+    article
+    h3 {
+        margin: 0 0 31px 0;
+        padding: 15px 20px;
+        border: 3px solid #373867;
+        border-radius: 5px;
+        font-size: 24px;
+        font-size: 24px;
+    }
+
+    .activities 
+    ol {
+        align-self: flex-start;
+        font-size: 24px;
+    }
+
+    .business-section
+    article
+    ul {
+        font-size: 24px;
+    }
+
+    .black-memb,
+    .classic-memb,
+    .only-classes-memb {
+        padding-left: 0;
+    }
+
+    .black-memb {
+        margin-top: 0;
+    }
+
+    .only-classes-memb,
+    h3, ul {
+        width: 325px;
+    }
+
+    .classic-memb
+    h3 {
+        width: 265px;
+    }
+
+
+    /* ----------------------------------------------------------- */
+
+
+
+
+    /* Footer */
+    /* ----------------------------------------------------------- */
+
+    .footer{
+        align-self: flex-end;
+        width: 75%;
+    }
+
+    .footer
+    p {
+        width: auto;
+        margin: 17px 0 20px 0;
+        font-size: 28px;
+    }
+
+    .footer
+    figure
+    img {
+        width: 71px;
+        height: 71px;
+        margin: 0 16px 10px 0;
+    }
+
     /* ----------------------------------------------------------- */
 }
