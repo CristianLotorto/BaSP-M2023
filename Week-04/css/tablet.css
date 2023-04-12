@@ -1,0 +1,252 @@
+@media (min-width: 600px) {
+
+    /* Element Selectors */
+    /* ----------------------------------------------------------- */
+    
+        header{
+            height: 169px;
+        }
+    
+        nav {
+            width: 300px;
+            height: 1194px;
+        }
+    
+    /* ----------------------------------------------------------- */
+    
+    
+    /* General Classes */
+    /* ----------------------------------------------------------- */
+    
+    .hide-p {
+        display: block;
+    }
+    /* ----------------------------------------------------------- */
+    
+    
+    /* Header */
+    /* ----------------------------------------------------------- */
+    
+        .main-logo {
+            width: 206px;
+            height: 42px;
+            margin-right: 30px;
+        }
+    
+        .burger-icon {
+            width: 30px;
+            height: 20px;
+            margin-left: 20px;
+        }
+    
+    /* ----------------------------------------------------------- */
+    
+    
+    
+    
+    /* NavBar */
+    /* ----------------------------------------------------------- */
+    
+    .nav-links
+    li {
+        margin-bottom: 50px;
+    }
+    
+    .contact-us {
+        height: 567px;
+        margin-top: 40px;
+    
+    }
+    
+    .contact-us
+    h3 {
+        margin-top: 20px;
+    }
+    
+    .contact-us img {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 10px;
+    }
+    
+    /* ----------------------------------------------------------- */
+    
+    
+    
+    
+    /* Get Fit Section */
+    /* ----------------------------------------------------------- */
+    
+    
+    .get-fit-section {
+        flex-direction: row;
+        justify-content: space-between;
+        width: 100%;
+    }
+
+    .get-fit-text-container {
+        display: block;
+        max-width: 600px;
+        margin-left: 23px;
+    }
+    
+    .get-fit-title {
+        width: 100%;
+        margin-right: 0;
+        text-align:left ;
+        font-size: 37px;
+    }
+    
+    .get-fit-paragraph {
+        width: 100%;
+        text-align: inherit;
+    }
+    
+    .get-fit-img {
+        width: 32%;
+        margin-right: 15px;
+    }
+    
+    .get-fit-img
+    img {
+        width: 184px;
+        height: 192px;
+    }
+    
+    /* ----------------------------------------------------------- */
+    
+    
+    
+    
+    /* Info Section */
+    /* ----------------------------------------------------------- */
+    
+    .info-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        padding: 30px auto;
+    }
+    
+    .info-section >
+    div {
+        display: flex;
+        justify-content: space-around;
+        align-items: flex-start;
+        width: 100%;
+        gap: 30px;
+    }
+    
+    .info-section
+    article {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 45%;
+        font-size: 15px;
+        gap: 10px;
+    }
+    
+    .info-section
+    article
+    div {
+        flex-direction: row;
+        justify-self: center;
+        width: 100%;
+    }
+    
+    .info-section
+    article
+    img {
+        width: 60px;
+        height: 60px;
+        margin: 0 10px 0 0;
+    }
+    
+    .info-section
+    article
+    p {
+        align-self: flex-start;
+        min-width: 230px;
+        max-width: 350px;
+        margin-top: 30px;
+        text-align: justify;
+        line-height: 2;
+    }
+    
+    .info-section
+    h3 {
+        min-width: 195px;
+        max-width: 280px;
+        padding: 12px 10px;
+        margin-bottom: 0;
+    }
+    
+    
+    
+    /* ----------------------------------------------------------- */
+    
+    
+    
+    
+    /* History Section */
+    /* ----------------------------------------------------------- */
+    
+    .history-section
+    p {
+        max-width: 810px;
+    }
+    
+    /* ----------------------------------------------------------- */
+    
+    
+    
+    
+    /* Business Section */
+    /* ----------------------------------------------------------- */
+    
+    .business-section
+    article {
+        width: 590px;
+    }
+    
+    .business-section
+    article
+    h2 {
+        font-size: 42px;
+    }
+    
+    .business-section
+    article
+    h3 {
+        font-size: 26px;
+    }
+    
+    .activities 
+    ol {
+        align-self: center;
+        font-size: 30px;
+    }
+    
+    .business-section
+    article
+    ul {
+        font-size: 26px;
+        padding-left: 0;
+    }
+    
+    .black-memb,
+    .classic-memb,
+    .only-classes-memb {
+        padding-left: 50px;
+    }
+    
+    .black-memb {
+        margin-top: 50px;
+    }
+    
+    /* ----------------------------------------------------------- */
+    
+    
+    }

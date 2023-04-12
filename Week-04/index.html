@@ -8,7 +8,10 @@
 
     <link rel="icon" type="image/Lifter-icon" href="../assets/icons/favicon.ico">
     <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/general.css">
     <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="./css/tablet.css">
+    <link rel="stylesheet" href="./css/desktop.css">
     <title>MegaRocket Gym!</title>
 
 </head>
@@ -22,45 +25,43 @@
 
         </h1>
     </header>
-        <nav class="hide-nav">
-            <ul class="nav-links font-roboto">
-                <li>
-                    <a href="" target="_blank">Home</a>
-                </li>
-                <li>
-                    <a href="" target="_blank">Sign Up</a>
-                </li>
-                <li>
-                    <a href="" target="_blank">Log In</a>
-                </li>
-                <li>
-                    <a href="" target="_blank">Info</a>
-                </li>
-            </ul>
-
-            <section id="contact-us" class="contact-us font-roboto font-color-white">
-                <h3>
-                    Contact Us
-                </h3>
-                <address>                
-                    <ul class="nav-contact">
-                        <li> 
-                            <img src="../assets/img/letterIcon.png" alt="letter icon">                  
-                            information@untitled.tld 
-                        </li>
-                        <li> 
-                            <img src="../assets/img/smartPhoneIcon.png" alt="phone icon">                      
-                            (000) 000-0000
-                        </li>
-                        <li>
-                            <img src="../assets/img/addressIcon.png" alt="address icon">
-                            1234 Somewhere Road #8254Nashville, TN 00000-0000
-                        </li>
-                    </ul>
-                </address>
-            </section>
-        </nav>
-
+    <nav class="hide-nav">
+        <ul class="nav-links font-roboto">
+            <li>
+                <a href="" target="_blank">Home</a>
+            </li>
+            <li>
+                <a href="" target="_blank">Sign Up</a>
+            </li>
+            <li>
+                <a href="" target="_blank">Log In</a>
+            </li>
+            <li>
+                <a href="" target="_blank">Info</a>
+            </li>
+        </ul>
+        <section id="contact-us" class="contact-us font-roboto font-color-white">
+            <h3>
+                Contact Us
+            </h3>
+            <address>                
+                <ul class="nav-contact">
+                    <li> 
+                        <img src="../assets/img/letterIcon.png" alt="letter icon">                  
+                        information@untitled.tld 
+                    </li>
+                    <li> 
+                        <img src="../assets/img/smartPhoneIcon.png" alt="phone icon">                      
+                        (000) 000-0000
+                    </li>
+                    <li>
+                        <img src="../assets/img/addressIcon.png" alt="address icon">
+                        1234 Somewhere Road #8254Nashville, TN 00000-0000
+                    </li>
+                </ul>
+            </address>
+        </section>
+    </nav>
     <main>
 
         <section class="get-fit-section gray-background">
@@ -172,12 +173,13 @@
                         </option>
                     </select>
                 </div>
-
+                <div class="text-area-btn-container">
                 <textarea name="questions" cols="30" rows="10" placeholder="Your message"></textarea>
 
                 <div class="form-button">
                     <button type="reset"><img src="../assets/img/clearButtonIcon.png" alt="send icon">Clear</button>                 
                     <button type="submit"><img src="../assets/img/sendButtonIcon.png" alt="send icon">Send</button>
+                </div>
                 </div>
             </form>
         </section>
@@ -197,83 +199,86 @@
         </section>
         
         <section id="business" class="business-section gray-background font-roboto">
-            <article class="activities">
-                <h2>
-                    Our Activities
-                </h2>
+            <div>
+                <article class="activities">
+                    <h2>
+                        Our Activities
+                    </h2>
 
-                <ol>
-                    <li>
-                        Crossfit
-                    </li>
-                    <li>
-                        Spinning
-                    </li>
-                    <li>
-                        Functional
-                    </li>
-                    <li>
-                        Boxing
-                    </li>
-                    <li>
-                        Weightlifting
-                    </li>
-                </ol>
-            </article>
-            
-                <article class="black-memb">
-                    <h3>
-                        Black Membership
-                    </h3>
-
-                    <ul>
+                    <ol>
                         <li>
-                            Free access to BB class
+                            Crossfit
                         </li>
                         <li>
-                            Free access to classes without making appointment
+                            Spinning
                         </li>
                         <li>
-                            Personalized follow up with personal trainer
+                            Functional
                         </li>
                         <li>
-                            Grid display
+                            Boxing
                         </li>
-                    </ul>
+                        <li>
+                            Weightlifting
+                        </li>
+                    </ol>
                 </article>
 
-                <article class="classic-memb">
-                    <h3>
-                        Classic Membership
-                    </h3>
+                    <article class="black-memb">
+                        <h3>
+                            Black Membership
+                        </h3>
 
-                    <ul>
-                        <li>
-                            Free pass to weights room
-                        </li>
-                        <li>
-                            Monitored by a personal coach
-                        </li>
-                        <li>
-                            Displayed schedule
-                        </li>
-                    </ul>
-                </article>
+                        <ul>
+                            <li>
+                                Free access to BB class
+                            </li>
+                            <li>
+                                Free access to classes without making appointment
+                            </li>
+                            <li>
+                                Personalized follow up with personal trainer
+                            </li>
+                            <li>
+                                Grid display
+                            </li>
+                        </ul>
+                    </article>
+                </div>
+                <div>
+                    <article class="classic-memb">
+                        <h3>
+                            Classic Membership
+                        </h3>
 
-                <article class="only-classes-memb">
-                    <h3>
-                        Only Classes Membership
-                    </h3>
+                        <ul>
+                            <li>
+                                Free pass to weights room
+                            </li>
+                            <li>
+                                Monitored by a personal coach
+                            </li>
+                            <li>
+                                Displayed schedule
+                            </li>
+                        </ul>
+                    </article>
 
-                    <ul>
-                        <li>
-                            Free pass to classes with prior appointment
-                        </li>                   
-                        <li>
-                            Display schedule
-                        </li>
-                    </ul>
-                </article>
+                    <article class="only-classes-memb">
+                        <h3>
+                            Only Classes Membership
+                        </h3>
+
+                        <ul>
+                            <li>
+                                Free pass to classes with prior appointment
+                            </li>                   
+                            <li>
+                                Display schedule
+                            </li>
+                        </ul>
+                    </article>
+                </div>
         </section>
     </main>
     
