@@ -220,20 +220,21 @@
     .business-section
     article
     h3 {
+        align-self: flex-start;
         font-size: 26px;
     }
     
     .activities 
     ol {
         align-self: center;
+        width: auto;
         font-size: 30px;
     }
     
     .business-section
     article
-    ul {
+    ul, ol {
         font-size: 26px;
-        padding-left: 0;
     }
     
     .black-memb,
