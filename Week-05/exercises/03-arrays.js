@@ -26,6 +26,7 @@ var monthsForSort = ["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Jul
 "Octubre", "Noviembre", "Diciembre"];
 
 var monthsSorted = monthsForSort.sort();
+
 console.log(monthsSorted);
 
 /***************************************************************************************************** 

@@ -84,20 +84,11 @@ function newAddFunctionValidated(a, b){
             alert('Error: one of the parameters is not an integer');
 
             if(!validateInteger(a) && validateInteger(b)){
-                if(a + 0.5 >= Math.ceil(a)){
-                   result = Math.ceil(a);
-                }else if(a + 0.5 < Math.ceil(a)){
-                    result = Math.floor(a);
-                }
+                Math.round(a);
             }else if(validateInteger(a) && !validateInteger(b)){ 
-                
-                if(b + 0.5 >= Math.ceil(b)){
-                   result = Math.ceil(b);
-                }else if(b + 0.5 < Math.ceil(b)){
-                    result = Math.floor(b);
-                }
+                Math.round(b);
             }else{
-                result = Math.floor(a) + ', ' + Math.floor(b);
+                result = Math.round(a) + ', ' + Math.round(b);
             }
         }
 
@@ -133,20 +124,11 @@ function greatValidation(a, b){
             alert('Error: one of the parameters is not an integer');
 
             if(!validateInteger(a) && validateInteger(b)){
-                if(a + 0.5 >= Math.ceil(a)){
-                   result = Math.ceil(a);
-                }else if(a + 0.5 < Math.ceil(a)){
-                    result = Math.floor(a);
-                }
+                Math.round(a);
             }else if(validateInteger(a) && !validateInteger(b)){ 
-                
-                if(b + 0.5 >= Math.ceil(b)){
-                   result = Math.ceil(b);
-                }else if(b + 0.5 < Math.ceil(b)){
-                    result = Math.floor(b);
-                }
+                Math.round(b);
             }else{
-                result = Math.floor(a) + ', ' + Math.floor(b);
+                result = Math.round(a) + ', ' + Math.round(b);
             }
         }
 
