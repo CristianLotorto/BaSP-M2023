@@ -1,0 +1,47 @@
+.burger-icon {
+    width: 20px;
+    height: 15px;
+    margin-left: 20px;
+}
+
+.main-logo {
+    width: 150px;
+    height: 31px;
+    margin-right:10px;
+}
+
+
+@media (min-width: 600px) {
+    
+    .main-logo {
+        width: 206px;
+        height: 42px;
+        margin-right: 30px;
+    }
+
+    .burger-icon {
+        width: 30px;
+        height: 20px;
+        margin-left: 20px;
+    }
+
+}
+
+
+
+
+@media (min-width: 1024px) {
+
+    .burger-icon {
+        width: 36px;
+        height: 29px;
+        margin-left: 20px;
+    }
+
+    .main-logo {
+        width: 223px;
+        height: 50px;
+        margin-right: 25px;
+    }
+
+}
