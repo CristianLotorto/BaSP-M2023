@@ -84,8 +84,18 @@ Hope you like the results!
 
 
 ## Week 05: JS ECMAScript 5
+- Introduction to ECMAScript 5 features.
 
+**We worked with**: 
+- Variables definition and learned about how they behave in JS code flow.
+- Arrays definition and applied methods to modify them.
+- Conditional structures and methods to work with conditions.
+- For loops for load arrays and to show their content.
+- Function definition and earned about how to work efficiently with them.
+
+**Last but not least**:
+
+We worked in W04 CSS Flexbox project corrections following tutors advice.
 
 ## Author
 - Cristian Lotorto
- 
