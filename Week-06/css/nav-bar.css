@@ -1,0 +1,167 @@
+.nav-links
+li {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 260px;
+    height: 54px;
+    margin-bottom: 23px;
+    background-color: var(--background-navbar-links);
+    border: solid 1px #000;
+    border-radius: 20px;
+    list-style-type: none;
+}
+
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 76px;
+}
+
+.nav-links >
+li >
+a {
+    color: var(--text-light);
+    text-transform: uppercase;
+    font-size: 32px;
+}
+
+.contact-us {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 260px;
+    height: 414px;
+    border: solid 1px #000;
+    padding: 15px;
+    border-radius: 20px;
+    background-color: var(--background-navbar-links);
+}
+
+.contact-us
+h3 {
+    text-transform: uppercase;
+    font-size: 32px;
+    font-weight: 400;
+}
+
+.contact-us img {
+    width: 46px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+.nav-contact {
+    width: 258px;
+    height: 320px;
+    padding: 0 20px;
+    list-style-type: none;
+    font-size: 20px;
+}
+
+.nav-contact
+li {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-bottom: 23px;
+    text-align:center;
+}
+
+
+@media (min-width: 600px) {
+    
+    .nav-links
+    li {
+        margin-bottom: 50px;
+    }
+    
+    .contact-us {
+        height: 567px;
+        margin-top: 40px;
+    
+    }
+    
+    .contact-us
+    h3 {
+        margin-top: 20px;
+    }
+    
+    .contact-us img {
+        width: 80px;
+        height: 80px;
+        margin-bottom: 10px;
+    }
+    
+}
+
+
+
+
+@media (min-width: 1024px) {
+
+    .nav-links
+    li {
+        width: 23vw;
+        height: 45px;
+        margin-bottom: 23px;
+    }
+
+    .nav-links {
+        margin-top: 26px;
+    }
+
+    .nav-links >
+    li >
+    a {
+        color: var(--text-light);
+        text-transform: uppercase;
+        font-size: 25px;
+    }
+
+    .contact-us {
+        justify-content: center;
+        align-items: center;
+        width: 23vw;
+        height: 40%;
+        margin-top: 25px;
+        padding: 0;
+    }
+
+    .contact-us
+    h3 {
+        text-align: center;
+        font-size: 25px;
+    }
+
+    .contact-us img {
+        width: 46px;
+        height: 40px;
+        margin-right: 10px;
+    }
+
+    .nav-contact {
+        width: 50%;
+        min-width: fit-content; 
+        max-width: fit-content;
+        height: 90%;
+        margin-left: -15px;
+        padding: 0 0 20px 0;
+        font-size: 20px;
+    }
+
+    .nav-contact
+    li {
+        flex-direction: row;
+        align-items: center;
+        justify-content: flex-start;
+        text-align: left;
+        overflow-wrap: break-word;
+        width: 100%;
+        margin: 0;
+        padding: 0 0 0 35px;
+    }
+
+}

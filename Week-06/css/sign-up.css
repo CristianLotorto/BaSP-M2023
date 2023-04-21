@@ -1,0 +1,55 @@
+.login-body {
+	height: 100%;
+}
+
+.input-container div {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+.sign-up-form {
+	height: auto;
+	margin: 20px;
+	padding: 30px 60px;
+}
+
+.sign-up-form input[type="text"] {
+	width: 241px;
+	height: 27px;
+	margin-bottom: 15px;
+	padding-left: 10px;
+}
+
+.sign-up-form label {
+	align-self: flex-start;
+	margin-bottom: 3px;
+	font-size: 15px;
+	color: var(--primary-light-green);
+}
+
+.sign-up-link {
+	margin-top: 15px;
+}
+
+@media (min-width: 1024px) {
+	.sign-up-form {
+		max-width: 950px;
+	}
+	.input-container {
+		display: flex;
+	}
+
+	.input-container div {
+		align-self: flex-start;
+	}
+
+	.left-col {
+		margin-right: 100px;
+	}
+
+	#sign-in-btn-continue {
+		margin-top: 20px;
+	}
+}
