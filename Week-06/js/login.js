@@ -1,6 +1,6 @@
 // Elements Selection
 var loginForm = document.getElementById("login-form");
-var continueButton = document.getElementById("login-btn-continue");
+var continueButton = document.getElementById("login-btn");
 var email = document.getElementById("login-email");
 var pass = document.getElementById("login-pass");
 var loginErrorEmail = document.getElementById("email-error-list");
@@ -58,8 +58,8 @@ function ifErrorInputStyle(input, inputErrorsArray) {
 }
 
 // Email Validation Function
-const emailValidation = () => {
-	email.addEventListener("focus", () => {
+function emailValidation() {
+	email.addEventListener("focus", function () {
 		emailErrors = [];
 		loginErrorEmail.innerHTML = "";
 		email.className = "login-input";
@@ -68,7 +68,7 @@ const emailValidation = () => {
 		}
 	});
 
-	email.addEventListener("blur", () => {
+	email.addEventListener("blur", function () {
 		if (email.value == "") {
 			email.value = "Email";
 			emailErrors.push("Email form is empty.");
@@ -84,11 +84,11 @@ const emailValidation = () => {
 			loginErrorEmail.innerHTML = `<li>${emailErrors[i]}</li>`;
 		}
 	});
-};
+}
 
 // Password Validation Function
-const passwordValidation = () => {
-	pass.addEventListener("focus", () => {
+function passwordValidation() {
+	pass.addEventListener("focus", function () {
 		passErrors = [];
 		loginErrorPass.innerHTML = "";
 		pass.className = "login-input";
@@ -96,7 +96,7 @@ const passwordValidation = () => {
 			pass.value = "";
 			pass.setAttribute("type", "password");
 		}
-		addEventListener("keydown", (e) => {
+		addEventListener("keydown", function (e) {
 			if (pass.value.length > 15) {
 				if (e.key != "Backspace") {
 					e.preventDefault();
@@ -105,7 +105,7 @@ const passwordValidation = () => {
 		});
 	});
 
-	pass.addEventListener("blur", () => {
+	pass.addEventListener("blur", function () {
 		if (pass.value == "") {
 			pass.value = "Password";
 			pass.setAttribute("type", "text");
@@ -139,17 +139,17 @@ const passwordValidation = () => {
 			loginErrorPass.innerHTML = `<li>${passErrors[i]}</li>`;
 		}
 	});
-};
+}
 
 // Running Validation Functions
 emailValidation();
 passwordValidation();
 
 // Login(Continue) button + validation conditions
-continueButton.addEventListener("click", () => {
+continueButton.addEventListener("click", function () {
 	// Validation Check
 	if (emailErrors.length != 0 || passErrors != 0) {
-		loginForm.addEventListener("submit", (e) => {
+		loginForm.addEventListener("submit", function (e) {
 			e.preventDefault();
 		});
 
@@ -162,7 +162,7 @@ continueButton.addEventListener("click", () => {
 				passErrors
 		);
 	} else {
-		loginForm.addEventListener("submit", (e) => {
+		loginForm.addEventListener("submit", function (e) {
 			e.preventDefault();
 		});
 		alert("You are signed in! \n\n" + "Email: " + email.value + "\n" + "Password: " + pass.value);
