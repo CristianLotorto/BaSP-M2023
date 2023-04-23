@@ -20,13 +20,15 @@
 	height: 27px;
 	margin-bottom: 15px;
 	padding-left: 10px;
+	border: 1px solid var(--primary-light-green);
+	border-radius: 5px;
 }
 
 .sign-up-form label {
 	align-self: flex-start;
 	margin-bottom: 3px;
 	font-size: 15px;
-	color: var(--primary-light-green);
+	color: var(--primary-dark);
 }
 
 .sign-up-link {

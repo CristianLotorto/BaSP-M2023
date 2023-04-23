@@ -9,6 +9,47 @@ var loginErrorPass = document.getElementById("pass-error-list");
 // Errors Array
 var emailErrors = [];
 var passErrors = [];
+
+// Simbols Array
+var symbolsArray = [
+	" ",
+	".",
+	",",
+	"[",
+	"]",
+	"{",
+	"}",
+	"'",
+	'"',
+	"´",
+	"*",
+	"+",
+	"-",
+	"_",
+	";",
+	":",
+	"|",
+	"°",
+	"!",
+	"#",
+	"$",
+	"%",
+	"&",
+	"/",
+	"(",
+	")",
+	"=",
+	"¿",
+	"?",
+	"¡",
+	"¨",
+	"~",
+	"^",
+	"`",
+	"¬",
+];
+
+// Function Email regEx Pattern
 var emailPattern = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
 function ifErrorInputStyle(input, inputErrorsArray) {
 	if (inputErrorsArray.length > 0) {
@@ -72,10 +113,22 @@ const passwordValidation = () => {
 		} else if (pass.value.length < 7) {
 			passErrors.push("Password input must have between 7 and 15 characters.");
 		} else if (
-			pass.value.split("").filter((char) => isNaN(char)).length == 0 ||
-			pass.value.split("").filter((char) => !isNaN(parseInt(char))).length == 0
+			pass.value.split("").filter(function (char) {
+				return isNaN(char);
+			}).length == 0 ||
+			pass.value.split("").filter(function (char) {
+				return !isNaN(parseInt(char));
+			}).length == 0
 		) {
 			passErrors.push("Password input must be a numbers/letters combination.");
+		} else if (
+			pass.value.split("").filter(function (char) {
+				return symbolsArray.indexOf(char) != -1;
+			}).length > 0
+		) {
+			passErrors.push(
+				"Password form must not contain blank spaces or special characters like ' . ', ' , ', ' / ', etc"
+			);
 		} else {
 			passErrors = [];
 		}
