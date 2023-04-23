@@ -41,6 +41,10 @@ header {
 	height: 60px;
 }
 
+input:focus {
+	outline: none;
+}
+
 nav {
 	display: flex;
 	flex-direction: column;
