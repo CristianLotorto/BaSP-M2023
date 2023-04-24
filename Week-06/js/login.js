@@ -50,7 +50,7 @@ var symbolsArray = [
 ];
 
 // RegEx Pattern
-var emailPattern = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
+var loginEmailPattern = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
 
 // Input Style on Error
 function ifErrorInputStyle(input, inputErrorsArray) {
@@ -74,7 +74,7 @@ function emailValidation() {
 		if (email.value == "") {
 			email.value = "Email";
 			emailErrors.push("Email form is empty.");
-		} else if (!emailPattern.test(email.value)) {
+		} else if (!loginEmailPattern.test(email.value)) {
 			emailErrors.push("Email pattern doesn't match.");
 		} else {
 			emailErrors = [];

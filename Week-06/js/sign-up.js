@@ -32,7 +32,7 @@ var townErrors = [];
 var postCodeErrors = [];
 var emailErrors = [];
 var passErrors = [];
-var passConfirmErrorsErrors = [];
+var passConfirmErrors = [];
 
 // Symbols Array
 var symbolsArray = [
@@ -74,7 +74,7 @@ var symbolsArray = [
 ];
 
 // RegEx Pattern
-var emailPattern = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
+var signUpEmailPattern = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
 
 // Input Style on Error
 function ifErrorInputStyle(input, inputErrorsArray) {
@@ -92,6 +92,35 @@ function focusEvent(input, inputErrorsArray, inputErrorsList) {
 	});
 }
 
+// Is Empty Validation
+function isEmpty(input, inputErrorsArray, inputErrorsList, inputLabel) {
+	if (input.value == "") {
+		inputErrorsArray.push(`${inputLabel} form is empty.`);
+	} else {
+		inputErrorsArray = [];
+	}
+
+	errorsRender(input, inputErrorsArray, inputErrorsList);
+}
+
+// Has Number and Letters Validation
+function hasNumberAndLetters(input, inputErrorsArray, inputErrorsList, inputLabel) {
+	if (
+		input.value.split("").filter(function (char) {
+			return isNaN(char);
+		}).length == 0 ||
+		input.value.split("").filter(function (char) {
+			return !isNaN(parseInt(char));
+		}).length == 0
+	) {
+		inputErrorsArray.push(`${inputLabel} should have letters and numbers.`);
+	} else {
+		inputErrorsArray = [];
+	}
+
+	errorsRender(input, inputErrorsArray, inputErrorsList);
+}
+
 // Characters Number Validation
 function charactersNumberValidation(
 	inputLabel,
@@ -103,9 +132,7 @@ function charactersNumberValidation(
 ) {
 	input.addEventListener("blur", function () {
 		if (input.value.length <= conditionNumber) {
-			inputErrorsArray.push(
-				`${inputLabel} form allows only ${moreLessEqual} than ${conditionNumber} characters.`
-			);
+			inputErrorsArray.push(`${inputLabel} form allows ${moreLessEqual} than ${conditionNumber} characters.`);
 		} else {
 			inputErrorsArray = [];
 		}
@@ -125,9 +152,8 @@ function errorsRender(input, inputErrorsArray, inputErrorsList) {
 // Only Letters Validation Function
 function onlyLettersValidation(input, inputErrorsArray, inputErrorsList, inputLabel) {
 	input.addEventListener("blur", function () {
-		if (input.value == "") {
-			inputErrorsArray.push(`${inputLabel} form is empty.`);
-		} else if (
+		isEmpty(input, inputErrorsArray, inputErrorsList, inputLabel);
+		if (
 			input.value.split("").filter(function (char) {
 				return !isNaN(parseInt(char));
 			}).length > 0
@@ -149,12 +175,11 @@ function onlyLettersValidation(input, inputErrorsArray, inputErrorsList, inputLa
 	});
 }
 
-// Only NUmbers Validation Function
+// Only Numbers Validation Function
 function onlyNumbersValidation(input, inputErrorsArray, inputErrorsList, inputLabel) {
 	input.addEventListener("blur", function () {
-		if (input.value == "") {
-			inputErrorsArray.push(`${inputLabel} form is empty.`);
-		} else if (
+		isEmpty(input, inputErrorsArray, inputErrorsList, inputLabel);
+		if (
 			input.value.split("").filter(function (char) {
 				return isNaN(parseInt(char));
 			}).length > 0
@@ -176,12 +201,32 @@ function onlyNumbersValidation(input, inputErrorsArray, inputErrorsList, inputLa
 	});
 }
 
+// Address Validation Function
+function addressPatternValidation(input, inputErrorsArray, inputErrorsList) {
+	var cleanAddress;
+	input.addEventListener("blur", function () {
+		cleanAddress = input.value.trim();
+		if (
+			cleanAddress.split("").filter(function (element) {
+				return element.indexOf(" ") != -1;
+			}).length != 1
+		) {
+			inputErrorsArray.push("Address form should have one blank space");
+		} else {
+			inputErrorsArray = [];
+		}
+		hasNumberAndLetters(input, inputErrorsArray, inputErrorsList, "Address");
+		isEmpty(input, inputErrorsArray, inputErrorsList, "Address");
+
+		errorsRender(input, inputErrorsArray, inputErrorsList);
+	});
+}
+
 // Email Validation Function
 function emailPatternValidation(input, inputErrorsArray, regEx, inputErrorsList) {
 	input.addEventListener("blur", function () {
-		if (input.value == "") {
-			inputErrorsArray.push("Email form is empty.");
-		} else if (!regEx.test(input.value)) {
+		isEmpty(input, inputErrorsArray, inputErrorsList, "Email");
+		if (!regEx.test(input.value)) {
 			inputErrorsArray.push("Email pattern doesn't match.");
 		} else {
 			inputErrorsArray = [];
@@ -215,7 +260,6 @@ function dniValidation() {
 // Phone Validation
 function phoneValidation() {
 	focusEvent(signUpPhone, phoneErrors, signUpErrorPhone);
-
 	// Characters Number Validation
 	signUpPhone.addEventListener("blur", function () {
 		if (signUpPhone.value.length != 10) {
@@ -229,10 +273,65 @@ function phoneValidation() {
 	onlyNumbersValidation(signUpPhone, phoneErrors, signUpErrorPhone, "Phone number");
 }
 
+// Address Validation
+function addressValidation() {
+	focusEvent(signUpAddress, addressErrors, signUpErrorAddress);
+	charactersNumberValidation("Address", signUpAddress, "more", 4, addressErrors, signUpErrorAddress);
+	addressPatternValidation(signUpAddress, addressErrors, signUpErrorAddress);
+}
+
+// Town Validation
+function townValidation() {
+	focusEvent(signUpTown, townErrors, signUpErrorTown);
+
+	charactersNumberValidation("Town", signUpTown, "more", 3, townErrors, signUpErrorTown);
+	signUpTown.addEventListener("blur", function () {
+		isEmpty(signUpTown, townErrors, signUpErrorTown, "Town");
+	});
+}
+
+// Post Code Validation
+function postCodeValidation() {
+	focusEvent(signUpPostCode, postCodeErrors, signUpErrorPostCode);
+	signUpPostCode.addEventListener("blur", function () {
+		if (this.value.length < 4 || this.value.length > 5) {
+			postCodeErrors.push("Post code allow 4 or 5 numbers.");
+		} else {
+			postCodeErrors = [];
+		}
+
+		errorsRender(signUpPostCode, postCodeErrors, signUpErrorPostCode);
+	});
+	onlyNumbersValidation(signUpPostCode, postCodeErrors, signUpErrorPostCode, "Post code");
+}
+
 // Email Validation
 function emailValidation() {
-	focusEvent(signUpEmail, emailErrors, loginErrorEmail);
-	emailPatternValidation(signUpEmail, emailErrors, emailPattern, loginErrorEmail);
+	focusEvent(signUpEmail, emailErrors, signUpErrorEmail);
+	emailPatternValidation(signUpEmail, emailErrors, signUpEmailPattern, signUpErrorEmail);
+}
+
+// Password Validation
+function passwordValidation() {
+	focusEvent(signUpPass, passErrors, signUpErrorPass);
+	charactersNumberValidation("Password", signUpPass, "more", 7, passErrors, signUpErrorPass);
+	signUpPass.addEventListener("blur", function () {
+		hasNumberAndLetters(signUpPass, passErrors, signUpErrorPass, "Password");
+		isEmpty(signUpPass, passErrors, signUpErrorPass, "Password");
+	});
+}
+
+// Repeat Password Validation
+function repeatPasswordValidation() {
+	signUpPassConfirm.addEventListener("blur", function () {
+		if (signUpPassConfirm.value != signUpPass.value) {
+			passConfirmErrors.push("Passwords doesn't match");
+		} else {
+			passConfirmErrors = [];
+		}
+
+		errorsRender(signUpPassConfirm, passConfirmErrors, signUpErrorPassConfirm);
+	});
 }
 
 // Running Validations
@@ -240,5 +339,9 @@ nameValidation();
 lastNameValidation();
 dniValidation();
 phoneValidation();
+addressValidation();
+townValidation();
+postCodeValidation();
 emailValidation();
-bornDateValidation();
+passwordValidation();
+repeatPasswordValidation();
