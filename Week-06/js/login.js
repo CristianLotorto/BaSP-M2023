@@ -10,7 +10,7 @@ var loginErrorPass = document.getElementById("pass-error-list");
 var emailErrors = [];
 var passErrors = [];
 
-// Simbols Array
+// Symbols Array
 var symbolsArray = [
 	" ",
 	".",
@@ -49,8 +49,10 @@ var symbolsArray = [
 	"¬",
 ];
 
-// Function Email regEx Pattern
+// RegEx Pattern
 var emailPattern = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
+
+// Input Style on Error
 function ifErrorInputStyle(input, inputErrorsArray) {
 	if (inputErrorsArray.length > 0) {
 		input.className = "error-input";

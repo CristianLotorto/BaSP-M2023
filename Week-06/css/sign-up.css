@@ -15,12 +15,21 @@
 	padding: 30px 60px;
 }
 
-.sign-up-form input[type="text"] {
+.sign-up-input {
 	width: 241px;
 	height: 27px;
 	margin-bottom: 15px;
 	padding-left: 10px;
 	border: 1px solid var(--primary-light-green);
+	border-radius: 5px;
+}
+
+.sign-up-input-error {
+	width: 241px;
+	height: 27px;
+	/* margin-bottom: 15px; */
+	padding-left: 10px;
+	border: 1px solid red;
 	border-radius: 5px;
 }
 
