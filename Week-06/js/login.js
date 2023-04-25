@@ -83,7 +83,7 @@ function emailValidation() {
 		ifErrorInputStyle(email, emailErrors);
 
 		for (var i = 0; i < emailErrors.length; i++) {
-			loginErrorEmail.innerHTML = `<li>${emailErrors[i]}</li>`;
+			loginErrorEmail.innerHTML += `<li>${emailErrors[i]}</li>`;
 		}
 	});
 }
@@ -138,7 +138,7 @@ function passwordValidation() {
 		ifErrorInputStyle(pass, passErrors);
 
 		for (var i = 0; i < passErrors.length; i++) {
-			loginErrorPass.innerHTML = `<li>${passErrors[i]}</li>`;
+			loginErrorPass.innerHTML += `<li>${passErrors[i]}</li>`;
 		}
 	});
 }
@@ -148,13 +148,10 @@ emailValidation();
 passwordValidation();
 
 // Login(Continue) button + validation conditions
-continueButton.addEventListener("click", function () {
+loginForm.addEventListener("submit", function (e) {
 	// Validation Check
-	if (emailErrors.length != 0 || passErrors != 0) {
-		loginForm.addEventListener("submit", function (e) {
-			e.preventDefault();
-		});
-
+	e.preventDefault();
+	if (emailErrors.length != 0 || passErrors.length != 0) {
 		alert(
 			"You couldn't sign in. There were some errors :( \n\n" +
 				"Email: " +
@@ -164,9 +161,6 @@ continueButton.addEventListener("click", function () {
 				passErrors
 		);
 	} else {
-		loginForm.addEventListener("submit", function (e) {
-			e.preventDefault();
-		});
 		alert("You are signed in! \n\n" + "Email: " + email.value + "\n" + "Password: " + pass.value);
 	}
 });
