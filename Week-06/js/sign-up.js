@@ -92,7 +92,7 @@ function focusEvent(input, inputErrorsList) {
 
 // Is Empty Validation
 function isEmpty(input, inputErrorsArray, inputLabel) {
-	if (input.value == "") {
+	if (input.value === "" || !input.value) {
 		inputErrorsArray.push(`${inputLabel} form is empty.`);
 	} else {
 		inputErrorsArray = [];
@@ -184,8 +184,8 @@ function addressPatternValidation(input, inputErrorsArray) {
 	var cleanAddress;
 	cleanAddress = input.value.trim();
 	if (
-		cleanAddress.split("").filter(function (element) {
-			return element.indexOf(" ") != -1;
+		cleanAddress.split("").filter(function (char) {
+			return char === " ";
 		}).length != 1
 	) {
 		inputErrorsArray.push("Address form should have one blank space");
@@ -242,6 +242,26 @@ function dniValidation() {
 		charactersNumberValidation("DNI", signUpDni, "more", 7, dniErrors);
 		onlyNumbersValidation(signUpDni, dniErrors, "DNI");
 		errorsRender(signUpDni, dniErrors, signUpErrorDni);
+	});
+}
+
+// Born Date Validation
+function bornDateValidation() {
+	var formattedDate;
+
+	signUpBornDate.addEventListener("focus", function () {
+		focusEvent(signUpBornDate, signUpErrorBornDate);
+		bornDateErrors = [];
+	});
+
+	signUpBornDate.addEventListener("blur", function () {
+		isEmpty(signUpBornDate, bornDateErrors, "Born date");
+		formattedDate = new Date(signUpBornDate.value).toLocaleDateString("es-ES", {
+			day: "numeric",
+			month: "numeric",
+			year: "numeric",
+		});
+		errorsRender(signUpBornDate, bornDateErrors, signUpErrorBornDate);
 	});
 }
 
@@ -359,6 +379,7 @@ function repeatPasswordValidation() {
 nameValidation();
 lastNameValidation();
 dniValidation();
+bornDateValidation();
 phoneValidation();
 addressValidation();
 townValidation();
