@@ -128,7 +128,7 @@ We worked in W04 CSS Flexbox project corrections following tutors advice.
 
 ### Take a look! :see_no_evil: :hear_no_evil: :speak_no_evil:
 
--   Feel free to test the forms in [our project in github-pages.](https://cristianlotorto.github.io/BaSP-M2023/Week-04/index.html)
+-   Feel free to test the forms in [our project in github-pages.](https://cristianlotorto.github.io/BaSP-M2023/Week-06/views/index.html)
 
 Hope you enjoy the results! :boom:
 
