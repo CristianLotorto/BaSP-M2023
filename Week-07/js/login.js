@@ -3,12 +3,12 @@ var loginForm = document.getElementById("login-form");
 var continueButton = document.getElementById("login-btn");
 var email = document.getElementById("login-email");
 var pass = document.getElementById("login-pass");
-var loginErrorEmail = document.getElementById("email-error-list");
-var loginErrorPass = document.getElementById("pass-error-list");
+var loginErrorListEmail = document.getElementById("email-error-list");
+var loginErrorListPass = document.getElementById("pass-error-list");
 
 // Errors Array
-var emailErrors = [];
-var passErrors = [];
+var loginEmailErrors = [];
+var loginPassErrors = [];
 
 // Symbols Array
 var symbolsArray = [
@@ -53,114 +53,126 @@ var symbolsArray = [
 var loginEmailPattern = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
 
 // Input Style on Error
-function ifErrorInputStyle(input, inputErrorsArray) {
-	if (inputErrorsArray.length > 0) {
-		input.className = "error-input";
+function ifErrorInputStyle(element, elementErrorsArray) {
+	if (elementErrorsArray.length > 0) {
+		element.className = "error-input";
 	}
 }
 
-// Email Validation Function
-function emailValidation() {
-	email.addEventListener("focus", function () {
-		emailErrors = [];
-		loginErrorEmail.innerHTML = "";
-		email.className = "login-input";
-		if (email.value == "Email") {
-			email.value = "";
-		}
-	});
-
-	email.addEventListener("blur", function () {
-		if (email.value == "") {
-			email.value = "Email";
-			emailErrors.push("Email form is empty.");
-		} else if (!loginEmailPattern.test(email.value)) {
-			emailErrors.push("Email pattern doesn't match.");
-		} else {
-			emailErrors = [];
-		}
-
-		ifErrorInputStyle(email, emailErrors);
-
-		for (var i = 0; i < emailErrors.length; i++) {
-			loginErrorEmail.innerHTML += `<li>${emailErrors[i]}</li>`;
-		}
-	});
+function loginEmailFocusEvent() {
+	loginEmailErrors = [];
+	loginErrorListEmail.innerHTML = "";
+	email.className = "login-input";
 }
 
 // Password Validation Function
-function passwordValidation() {
-	pass.addEventListener("focus", function () {
-		passErrors = [];
-		loginErrorPass.innerHTML = "";
-		pass.className = "login-input";
-		if (pass.value == "Password") {
-			pass.value = "";
-			pass.setAttribute("type", "password");
-		}
-		addEventListener("keydown", function (e) {
-			if (pass.value.length > 15) {
-				if (e.key != "Backspace") {
-					e.preventDefault();
-				}
+function loginPassFocusEvent() {
+	loginPassErrors = [];
+	loginErrorListPass.innerHTML = "";
+	pass.className = "login-input";
+	addEventListener("keydown", function (e) {
+		if (pass.value.length > 15) {
+			if (e.key != "Backspace") {
+				e.preventDefault();
 			}
-		});
-	});
-
-	pass.addEventListener("blur", function () {
-		if (pass.value == "") {
-			pass.value = "Password";
-			pass.setAttribute("type", "text");
-			passErrors.push("Password input is empty.");
-		} else if (pass.value.length < 7) {
-			passErrors.push("Password input must have between 7 and 15 characters.");
-		} else if (
-			pass.value.split("").filter(function (char) {
-				return isNaN(char);
-			}).length == 0 ||
-			pass.value.split("").filter(function (char) {
-				return !isNaN(parseInt(char));
-			}).length == 0
-		) {
-			passErrors.push("Password input must be a numbers/letters combination.");
-		} else if (
-			pass.value.split("").filter(function (char) {
-				return symbolsArray.indexOf(char) != -1;
-			}).length > 0
-		) {
-			passErrors.push(
-				"Password form must not contain blank spaces or special characters like ' . ', ' , ', ' / ', etc"
-			);
-		} else {
-			passErrors = [];
-		}
-
-		ifErrorInputStyle(pass, passErrors);
-
-		for (var i = 0; i < passErrors.length; i++) {
-			loginErrorPass.innerHTML += `<li>${passErrors[i]}</li>`;
 		}
 	});
 }
 
-// Running Validation Functions
-emailValidation();
-passwordValidation();
+function emailValidation() {
+	if (!email.value) {
+		loginEmailErrors.push("Email form is empty.");
+	} else if (!loginEmailPattern.test(email.value)) {
+		loginEmailErrors.push("Email pattern doesn't match.");
+	} else {
+		loginEmailErrors = [];
+	}
+
+	ifErrorInputStyle(email, loginEmailErrors);
+
+	for (var i = 0; i < loginEmailErrors.length; i++) {
+		loginErrorListEmail.innerHTML += `<li>${loginEmailErrors[i]}</li>`;
+	}
+}
+
+function passValidation() {
+	if (!pass.value) {
+		loginPassErrors.push("Password form is empty.");
+	} else if (pass.value.length < 7) {
+		loginPassErrors.push("Password form must have between 7 and 15 characters.");
+	} else if (
+		pass.value.split("").filter(function (char) {
+			return isNaN(char);
+		}).length == 0 ||
+		pass.value.split("").filter(function (char) {
+			return !isNaN(parseInt(char));
+		}).length == 0
+	) {
+		loginPassErrors.push("Password form must be a numbers/letters combination.");
+	} else if (
+		pass.value.split("").filter(function (char) {
+			return symbolsArray.indexOf(char) != -1;
+		}).length > 0
+	) {
+		loginPassErrors.push(
+			"Password form must not contain blank spaces or special characters like ' . ', ' , ', ' / ', etc"
+		);
+	} else {
+		loginPassErrors = [];
+	}
+	ifErrorInputStyle(pass, loginPassErrors);
+
+	for (var i = 0; i < loginPassErrors.length; i++) {
+		loginErrorListPass.innerHTML += `<li>${loginPassErrors[i]}</li>`;
+	}
+}
+
+email.addEventListener("focus", loginEmailFocusEvent);
+pass.addEventListener("focus", loginPassFocusEvent);
+
+email.addEventListener("blur", emailValidation);
+pass.addEventListener("blur", passValidation);
 
 // Login(Continue) button + validation conditions
+
 loginForm.addEventListener("submit", function (e) {
 	// Validation Check
 	e.preventDefault();
-	if (emailErrors.length != 0 || passErrors.length != 0) {
-		alert(
-			"You couldn't sign in. There were some errors :( \n\n" +
-				"Email: " +
-				emailErrors +
-				"\n" +
-				"Password: " +
-				passErrors
-		);
+
+	var loginErrorMessage = "You couldn't sign in. There were some errors :( \n\n";
+
+	loginErrorListEmail = "";
+	loginErrorListPass = "";
+
+	if (!email.value.trim()) {
+		if (loginEmailErrors.indexOf("Email form is empty.") == -1) {
+			loginEmailErrors.push("Email form is empty.");
+		}
+		ifErrorInputStyle(email, loginEmailErrors);
+		for (var i = 0; i < loginEmailErrors.length; i++) {
+			loginErrorListEmail.innerHTML += `<li>${loginEmailErrors[i]}</li>`;
+		}
+	} else if (!pass.value.trim) {
+		if (loginPassErrors.indexOf("Password form is empty.") == -1) {
+			loginPassErrors.push("Password form is empty.");
+		}
+		ifErrorInputStyle(pass, loginPassErrors);
+		for (var i = 0; i < loginPassErrors.length; i++) {
+			loginErrorListPass.innerHTML += `<li>${loginPassErrors[i]}</li>`;
+		}
+	}
+
+	if (loginEmailErrors.length != 0 || loginPassErrors.length != 0) {
+		if (loginEmailErrors.length != 0) {
+			loginErrorMessage += "Email: " + loginEmailErrors + "\n";
+		}
+		if (loginPassErrors.length != 0) {
+			loginErrorMessage += "Password: " + loginPassErrors;
+		}
+		alert(loginErrorMessage);
 	} else {
 		alert("You are signed in! \n\n" + "Email: " + email.value + "\n" + "Password: " + pass.value);
 	}
+	loginEmailErrors = [];
+	loginPassErrors = [];
 });
