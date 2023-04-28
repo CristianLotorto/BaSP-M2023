@@ -1,0 +1,155 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Mulish:wght@800&display=swap");
+
+/* Variables */
+/* ----------------------------------------------------------- */
+
+:root {
+	--primary-dark: #373867;
+	--primary-light-green: #aace9b;
+	--background-gray: #d9d9d9;
+	--background-navbar: #e5f2ed;
+	--background-navbar-links: #51a884;
+	--text-light: #fff;
+	--text-dark: #000;
+	--background-info-title: #88a47c;
+}
+
+/* ----------------------------------------------------------- */
+
+/* Element Selectors */
+/* ----------------------------------------------------------- */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+a {
+	text-decoration: none;
+}
+
+body {
+	width: 100vw;
+}
+
+header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 100%;
+	height: 60px;
+}
+
+input:focus {
+	outline: none;
+}
+
+nav {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	height: 847px;
+	background-color: var(--background-navbar);
+}
+
+address {
+	margin-top: 24px;
+}
+
+h1 {
+	margin-right: 10px;
+}
+
+/* ----------------------------------------------------------- */
+
+/* General Classes */
+/* ----------------------------------------------------------- */
+
+.font-roboto {
+	font-family: "Roboto", sans-serif;
+}
+
+.font-color-black {
+	color: var(--text-dark);
+}
+
+.font-color-white {
+	color: var(--text-light);
+}
+
+.dark-background {
+	background-color: var(--primary-dark);
+}
+
+.green-background {
+	background-color: var(--primary-light-green);
+}
+
+.gray-background {
+	background-color: var(--background-gray);
+}
+
+.hide-nav {
+	display: none;
+}
+
+.hide-p {
+	display: none;
+}
+
+/* ----------------------------------------------------------- */
+
+@media (min-width: 600px) {
+	/* Element Selectors */
+	/* ----------------------------------------------------------- */
+
+	header {
+		height: 169px;
+	}
+
+	nav {
+		width: 300px;
+		height: 1194px;
+	}
+
+	/* ----------------------------------------------------------- */
+
+	/* General Classes */
+	/* ----------------------------------------------------------- */
+
+	.hide-p {
+		display: block;
+	}
+	/* ----------------------------------------------------------- */
+}
+
+@media (min-width: 1024px) {
+	/* Element Selectors */
+	/* ----------------------------------------------------------- */
+	body {
+		display: flex;
+		flex-direction: column;
+		width: 100vw;
+	}
+
+	nav {
+		display: flex;
+		align-self: flex-start;
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 25%;
+		height: 100vh;
+	}
+
+	/* ----------------------------------------------------------- */
+
+	/* General Classes */
+	/* ----------------------------------------------------------- */
+	.hide-nav {
+		display: flex;
+	}
+
+	/* ----------------------------------------------------------- */
+}

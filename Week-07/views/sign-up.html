@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="stylesheet" href="../css/reset.css" />
+		<link rel="stylesheet" href="../css/general.css"">
+		<link rel="stylesheet" href="../css/header.css" />
+		<link rel="stylesheet" href="../css/login.css" />
+		<link rel="stylesheet" href="../css/sign-up.css" />
+		<title>Register</title>
+	</head>
+	<body class="login-body">
+		<header class="dark-background">
+			<img class="burger-icon hide" src="../../assets/img/burger.png" alt="burger menu" />
+			<h1>
+				<a href="./index.html"><img class="main-logo" src="../../assets/img/Logo.png" alt="mega rocket" /></a>
+			</h1>
+		</header>
+		<main class="gray-background login-main">
+			<form id="sign-up-form" class="login-form sign-up-form">
+				<a class="login-btn-back" href="./index.html">
+					<img src="../../assets/icons/sign-in-back-arrow.png" alt="go back" />
+				</a>
+				<h1>Register</h1>
+				<div class="input-container">
+					<div class="left-col">
+						<label for="">Name</label>
+						<input id="register-name" class="sign-up-input" type="text" />
+						<ul id="name-error-list" class="error"></ul>
+						<label for="">Last name</label>
+						<input id="register-last-name" class="sign-up-input" type="text" />
+						<ul id="last-name-error-list" class="error"></ul>
+						<label for="">DNI</label>
+						<input id="register-dni" class="sign-up-input" type="text" />
+						<ul id="dni-error-list" class="error"></ul>
+						<label for="">Born Date</label>
+						<input id="register-born-date" class="sign-up-input" type="date" />
+						<ul id="born-date-error-list" class="error"></ul>
+						<label for="">Phone</label>
+						<input id="register-phone" class="sign-up-input" type="text" />
+						<ul id="phone-error-list" class="error"></ul>
+					</div>
+					<div class="right-col">
+						<label for="">Address</label>
+						<input id="register-address" class="sign-up-input" type="text" />
+						<ul id="address-error-list" class="error"></ul>
+						<label for="">Town/City</label>
+						<input id="register-town" class="sign-up-input" type="text" />
+						<ul id="town-error-list" class="error"></ul>
+						<label for="">Post Code</label>
+						<input id="register-postcode" class="sign-up-input" type="text" />
+						<ul id="postcode-error-list" class="error"></ul>
+						<label for="">Email</label>
+						<input id="register-email" class="sign-up-input" type="text" />
+						<ul id="email-error-list" class="error"></ul>
+						<label for="">Password</label>
+						<input id="register-password" class="sign-up-input" type="password" />
+						<ul id="pass-error-list" class="error"></ul>
+						<label for="">Repeat Password</label>
+						<input id="register-rep-password" class="sign-up-input" type="password" />
+						<ul id="pass-rep-error-list" class="error"></ul>
+					</div>
+				</div>
+				<input id="register-btn" class="btn" type="submit" value="Register" />
+
+				<div class="sign-up-link">
+					<p>Are you already registered?</p>
+					<a href="./login.html">Sign in</a>
+				</div>
+			</form>
+		</main>
+		<script src="../js/sign-up.js"></script>
+	</body>
+</html>
