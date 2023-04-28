@@ -6,15 +6,15 @@ We've written the HTML for the landing page (desktop size) that we'd designed a 
 
 So far, landing page has a responsive design with three sizes:
 
--   **_Desktop:_** 1512x982 px
--   **_Tablet:_** 834x1194 px
--   **_SmartPhone:_** 390x844 px
+-   **_Desktop:_** 1512x982 px :desktop_computer:
+-   **_Tablet:_** 834x1194 px :pager:
+-   **_SmartPhone:_** 390x844 px :iphone:
 
-So it's going to be used in every kind of devices.
+So it's going to be used in every kind of devices. :raised_hands: :raised_hands:
 
-You can find information about different services, buttons for **_Log In_**, if you are member and **_Sign Up_** if you aren't part of the MegaRocket community yet, but you want to be.
+You can find information about different services, buttons for **_Log In_**, if you are member and **_Sign Up_** if you aren't part of the MegaRocket community yet, but you want to be. :muscle: :mechanical_arm:
 
-## Week 03: Gym Management Web Application stylized with CSS
+## Week 03: Gym Management Web Application stylized with CSS :artist:
 
 -   We stylize the landing page (desktop size) with **CSS**, using **only**:
 
@@ -40,7 +40,7 @@ selector {
 
 for HTML elements **flow ordering**.
 
--   Color palette is composed by:
+-   Color palette is composed by: :art:
 
 ```
     primary-dark: #373867;
@@ -68,26 +68,26 @@ used mostly for **backgrounds** in specified sections of the landing page,
 
 used for **font colors**. The main font-family used was **Roboto**.
 
-## Visual Results:
+## Visual Results: :framed_picture:
 
 ![image](https://user-images.githubusercontent.com/91099276/229694989-d12f1823-c481-445b-998c-b6c57223bfda.png)
 ![image](https://user-images.githubusercontent.com/91099276/229695134-da305652-3dc5-44b4-bd61-c81420a38105.png)
 
-Hope you like it as we do!
+Hope you like it as we do! :star_struck::star_struck:
 
-## Week 04: Gym Management Web Application stylized Flexbox CSS
+## Week 04: Gym Management Web Application stylized Flexbox CSS :paintbrush: :artist:
 
 -   We stylize the landing page (mobile-first/responsive) with Flexbox **CSS** for HTML elements **flow ordering**.
 
 -   We applied **media query** for different devices resolution styles setting.
 
--   We deployed [our project in github-pages](https://cristianlotorto.github.io/BaSP-M2023/Week-04/index.html) for easier access.
+-   We deployed [our project in github-pages](https://cristianlotorto.github.io/BaSP-M2023/Week-04/index.html) for easier access. :grin:
 
-Hope you like the results!
+Hope you like the results! :partying_face: :partying_face:
 
-## Week 05: JS ECMAScript 5
+## Week 05: JS ECMAScript 5 :clown_face:
 
-### Introduction to ECMAScript 5 features.
+### Introduction to ECMAScript 5 features. :nerd_face:
 
 **We worked with**:
 
@@ -101,9 +101,9 @@ Hope you like the results!
 
 We worked in W04 CSS Flexbox project corrections following tutors advice.
 
-## Week 06: JS ECMAScript 5 Validations.
+## Week 06: JS ECMAScript 5 Validations. :computer::policeman:
 
-### Form validation using **ECMAScript 5** methods
+### Form validation using **ECMAScript 5** methods :nerd_face:
 
 -   At first we worked on the HTML/CSS models for the login and sign up pages forms.
 
@@ -111,7 +111,7 @@ We worked in W04 CSS Flexbox project corrections following tutors advice.
 
 -   We worked with JS conditional structures combined with DOM manipulation methods for realize form validations listed on the requirements document.
 
-**Some of the methods we've used for validations were**:
+**Some of the methods we've used for DOM manipulation and validations were**: :keyboard:
 
 -   `document.getElementById()` - used for catch a DOM element with the id.
 -   `.className` - used to define or overwrite a class name attribute in a tag (object).
@@ -126,11 +126,11 @@ We worked in W04 CSS Flexbox project corrections following tutors advice.
 -   `new Date().toLocaleDateString()` - this method allows to modify the date layout format.
 -   `.preventDefault()` - this method stops any default event of an object.
 
-### Take a look!
+### Take a look! :see_no_evil: :hear_no_evil: :speak_no_evil:
 
--   Feel free to test the forms in [our project in github-pages.](https://cristianlotorto.github.io/BaSP-M2023/Week-04/index.html)
+-   Feel free to test the forms in [our project in github-pages.](https://cristianlotorto.github.io/BaSP-M2023/Week-06/views/index.html)
 
-Hope you enjoy the results!
+Hope you enjoy the results! :boom:
 
 ## Author
 
