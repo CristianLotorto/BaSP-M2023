@@ -77,6 +77,8 @@ var symbolsArray = [
 // RegEx Pattern
 var signUpEmailPattern = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
 
+var signUpBaseUrl = "https://api-rest-server.vercel.app/signup";
+
 // Input Style on Error
 function ifErrorInputStyle(input, inputErrorsArray) {
 	if (inputErrorsArray.length > 0) {
@@ -204,6 +206,59 @@ function emailPatternValidation(input, inputErrorsArray, regEx) {
 	}
 }
 
+//Local Storage Save Function
+function setLocalStorage(element) {
+	localStorage.setItem("id", element.data.id);
+	localStorage.setItem("name", element.data.name);
+	localStorage.setItem("lastName", element.data.lastName);
+	localStorage.setItem("dni", element.data.dni);
+	localStorage.setItem("dob", element.data.dob);
+	localStorage.setItem("phone", element.data.phone);
+	localStorage.setItem("address", element.data.address);
+	localStorage.setItem("city", element.data.city);
+	localStorage.setItem("zip", element.data.zip);
+	localStorage.setItem("email", element.data.email);
+	localStorage.setItem("password", element.data.password);
+}
+
+//Local Storage Get Function
+function getLocalStorage() {
+	var storageName = localStorage.getItem("name");
+	var storageLastName = localStorage.getItem("lastName");
+	var storageDni = localStorage.getItem("dni");
+	var storageDoB = localStorage.getItem("dob");
+	var storagePhone = localStorage.getItem("phone");
+	var storageAddress = localStorage.getItem("address");
+	var storageCity = localStorage.getItem("city");
+	var storageZip = localStorage.getItem("zip");
+	var storageEmail = localStorage.getItem("email");
+	var storagePass = localStorage.getItem("password");
+
+	if (
+		storageName &&
+		storageLastName &&
+		storageDni &&
+		storageDoB &&
+		storagePhone &&
+		storageAddress &&
+		storageCity &&
+		storageZip &&
+		storageEmail &&
+		storagePass
+	) {
+		signUpName.value = storageName;
+		signUpLastName.value = storageLastName;
+		signUpDni.value = storageDni;
+		signUpBornDate.valueAsDate = new Date(storageDoB);
+		signUpPhone.value = storagePhone;
+		signUpAddress.value = storageAddress;
+		signUpTown.value = storageCity;
+		signUpPostCode.value = storageZip;
+		signUpEmail.value = storageEmail;
+		signUpPass.value = storagePass;
+	}
+}
+
 // Name Validation
 function nameValidation() {
 	signUpName.addEventListener("focus", function () {
@@ -246,21 +301,24 @@ function dniValidation() {
 }
 
 // Born Date Validation
+var formattedDate = [];
 function bornDateValidation() {
-	var formattedDate;
-
 	signUpBornDate.addEventListener("focus", function () {
 		focusEvent(signUpBornDate, signUpErrorBornDate);
 		bornDateErrors = [];
+		formattedDate = [];
 	});
 
 	signUpBornDate.addEventListener("blur", function () {
 		isEmpty(signUpBornDate, bornDateErrors, "Born date");
-		formattedDate = new Date(signUpBornDate.value).toLocaleDateString("es-ES", {
-			day: "numeric",
-			month: "numeric",
-			year: "numeric",
-		});
+
+		var dateEl = signUpBornDate.value.split("-");
+
+		formattedDate.push(dateEl[2] + "/" + dateEl[1] + "/" + dateEl[0]);
+		formattedDate.push(dateEl[1] + "/" + dateEl[2] + "/" + dateEl[0]);
+		new Date(signUpBornDate.value).toLocaleDateString({ day: "numeric", month: "numeric", year: "numeric" });
+		console.log(formattedDate);
+
 		errorsRender(signUpBornDate, bornDateErrors, signUpErrorBornDate);
 	});
 }
@@ -387,7 +445,6 @@ postCodeValidation();
 emailValidation();
 passwordValidation();
 repeatPasswordValidation();
-
 // Register Button
 function registerButton() {
 	var errorMessage = "You couldn't sign up. There were some errors :( \n\n";
@@ -448,7 +505,7 @@ function registerButton() {
 					Name: ${signUpName.value}\n
 					Last name: ${signUpLastName.value}\n
 					DNI: ${signUpDni.value}\n
-					Born date: ${signUpBornDate.value}\n
+					Born date: ${formattedDate[0]}\n
 					Phone: ${signUpPhone.value}\n
 					Address: ${signUpAddress.value}\n
 					Town: ${signUpTown.value}\n
@@ -457,8 +514,39 @@ function registerButton() {
 					Password: ${signUpPass.value}`;
 
 			alert(message);
+
+			fetch(
+				`${signUpBaseUrl}?
+				name=${signUpName.value}&
+				lastName=${signUpLastName.value}&
+				dni=${signUpDni.value}&
+				dob=${formattedDate[1]}&
+				phone=${signUpPhone.value}&
+				address=${signUpAddress.value}&
+				city=${signUpTown.value}&
+				zip=${signUpPostCode.value}&
+				email=${signUpEmail.value}&
+				password=${signUpPass.value}`
+			)
+				.then(function (response) {
+					return response.json();
+				})
+				.then(function (data) {
+					console.log(data);
+					if (data.success) {
+						alert("Sign up has been successful!\n" + data.msg);
+						setLocalStorage(data);
+					} else {
+						throw new Error("Sign up has been rejected :/ \n" + data.msg);
+					}
+				})
+				.catch(function (err) {
+					alert(err);
+				});
 		}
 	});
 }
 
 registerButton();
+
+window.onload = getLocalStorage();

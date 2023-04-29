@@ -1,0 +1,6 @@
+{
+	"editor.insertSpaces": true,
+	"editor.guides.indentation": true,
+	"editor.detectIndentation": true,
+	"prettier.useTabs": true
+}
