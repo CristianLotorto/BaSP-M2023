@@ -95,7 +95,9 @@ function focusEvent(input, inputErrorsList) {
 // Is Empty Validation
 function isEmpty(input, inputErrorsArray, inputLabel) {
 	if (input.value === "" || !input.value) {
-		inputErrorsArray.push(`${inputLabel} form is empty.`);
+		if (input.value.indexOf(`${inputLabel} form is empty.`) == -1) {
+			inputErrorsArray.push(`${inputLabel} form is empty.`);
+		}
 	} else {
 		inputErrorsArray = [];
 	}
@@ -313,11 +315,8 @@ function bornDateValidation() {
 		isEmpty(signUpBornDate, bornDateErrors, "Born date");
 
 		var dateEl = signUpBornDate.value.split("-");
-
 		formattedDate.push(dateEl[2] + "/" + dateEl[1] + "/" + dateEl[0]);
 		formattedDate.push(dateEl[1] + "/" + dateEl[2] + "/" + dateEl[0]);
-		new Date(signUpBornDate.value).toLocaleDateString({ day: "numeric", month: "numeric", year: "numeric" });
-		console.log(formattedDate);
 
 		errorsRender(signUpBornDate, bornDateErrors, signUpErrorBornDate);
 	});
@@ -452,6 +451,44 @@ function registerButton() {
 	signUpForm.addEventListener("submit", function (e) {
 		e.preventDefault();
 
+		errorMessage = "You couldn't sign up. There were some errors :( \n\n";
+		message = "You are signed up! \n\n";
+
+		signUpErrorName.innerHTML = "";
+		signUpErrorLastName.innerHTML = "";
+		signUpErrorDni.innerHTML = "";
+		signUpErrorBornDate.innerHTML = "";
+		signUpErrorPhone.innerHTML = "";
+		signUpErrorAddress.innerHTML = "";
+		signUpErrorTown.innerHTML = "";
+		signUpErrorPostCode.innerHTML = "";
+		signUpErrorEmail.innerHTML = "";
+		signUpErrorPass.innerHTML = "";
+		signUpErrorPassConfirm.innerHTML = "";
+
+		isEmpty(signUpName, nameErrors, "Name");
+		errorsRender(signUpName, nameErrors, signUpErrorName);
+		isEmpty(signUpLastName, lastNameErrors, "Last name");
+		errorsRender(signUpLastName, lastNameErrors, signUpErrorLastName);
+		isEmpty(signUpDni, dniErrors, "DNI");
+		errorsRender(signUpDni, dniErrors, signUpErrorDni);
+		isEmpty(signUpBornDate, bornDateErrors, "Born date");
+		errorsRender(signUpBornDate, bornDateErrors, signUpErrorBornDate);
+		isEmpty(signUpPhone, phoneErrors, "Phone");
+		errorsRender(signUpPhone, phoneErrors, signUpErrorPhone);
+		isEmpty(signUpAddress, addressErrors, "Address");
+		errorsRender(signUpAddress, addressErrors, signUpErrorAddress);
+		isEmpty(signUpTown, townErrors, "Town");
+		errorsRender(signUpTown, townErrors, signUpErrorTown);
+		isEmpty(signUpPostCode, postCodeErrors, "Post code");
+		errorsRender(signUpPostCode, postCodeErrors, signUpErrorPostCode);
+		isEmpty(signUpEmail, emailErrors, "Email");
+		errorsRender(signUpEmail, emailErrors, signUpErrorEmail);
+		isEmpty(signUpPass, passErrors, "Password");
+		errorsRender(signUpPass, passErrors, signUpErrorPass);
+		isEmpty(signUpPassConfirm, passConfirmErrors, "Password confirmation");
+		errorsRender(signUpPassConfirm, passConfirmErrors, signUpErrorPassConfirm);
+
 		if (
 			nameErrors.length > 0 ||
 			lastNameErrors.length > 0 ||
@@ -537,13 +574,28 @@ function registerButton() {
 						alert("Sign up has been successful!\n" + data.msg);
 						setLocalStorage(data);
 					} else {
-						throw new Error("Sign up has been rejected :/ \n" + data.msg);
+						var responseErrorMsg;
+						data.errors.forEach((element) => {
+							responseErrorMsg += element.msg + "\n";
+						});
+						throw new Error("Sign up has been rejected :/ \n" + responseErrorMsg);
 					}
 				})
 				.catch(function (err) {
 					alert(err);
 				});
 		}
+		nameErrors = [];
+		lastNameErrors = [];
+		dniErrors = [];
+		bornDateErrors = [];
+		phoneErrors = [];
+		addressErrors = [];
+		townErrors = [];
+		postCodeErrors = [];
+		emailErrors = [];
+		passErrors = [];
+		passConfirmErrors = [];
 	});
 }
 
