@@ -49,6 +49,8 @@ var symbolsArray = [
 	"¬",
 ];
 
+var loginBaseUrl = "https://api-rest-server.vercel.app/login";
+
 // RegEx Pattern
 var loginEmailPattern = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
 
@@ -172,6 +174,21 @@ loginForm.addEventListener("submit", function (e) {
 		alert(loginErrorMessage);
 	} else {
 		alert("You are signed in! \n\n" + "Email: " + email.value + "\n" + "Password: " + pass.value);
+
+		fetch(`${loginBaseUrl}?email=${email.value}&password=${pass.value}`)
+			.then(function (response) {
+				return response.json();
+			})
+			.then(function (data) {
+				if (data.success) {
+					alert("Request has been successful!\n" + data.msg);
+				} else {
+					throw new Error("Request has been rejected :/ \n" + data.msg);
+				}
+			})
+			.catch(function (err) {
+				alert(err);
+			});
 	}
 	loginEmailErrors = [];
 	loginPassErrors = [];
