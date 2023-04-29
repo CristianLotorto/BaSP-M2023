@@ -569,7 +569,6 @@ function registerButton() {
 					return response.json();
 				})
 				.then(function (data) {
-					console.log(data);
 					if (data.success) {
 						alert("Sign up has been successful!\n" + data.msg);
 						setLocalStorage(data);
