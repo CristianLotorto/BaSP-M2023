@@ -95,11 +95,9 @@ function focusEvent(input, inputErrorsList) {
 // Is Empty Validation
 function isEmpty(input, inputErrorsArray, inputLabel) {
 	if (input.value === "" || !input.value) {
-		if (input.value.indexOf(`${inputLabel} form is empty.`) == -1) {
+		if (!inputErrorsArray.includes(`${inputLabel} form is empty.`)) {
 			inputErrorsArray.push(`${inputLabel} form is empty.`);
 		}
-	} else {
-		inputErrorsArray = [];
 	}
 }
 
@@ -114,8 +112,6 @@ function hasNumberAndLetters(input, inputErrorsArray, inputLabel) {
 		}).length == 0
 	) {
 		inputErrorsArray.push(`${inputLabel} should have letters and numbers.`);
-	} else {
-		inputErrorsArray = [];
 	}
 }
 
@@ -123,8 +119,6 @@ function hasNumberAndLetters(input, inputErrorsArray, inputLabel) {
 function charactersNumberValidation(inputLabel, input, moreLessEqual, conditionNumber, inputErrorsArray) {
 	if (input.value.length <= conditionNumber) {
 		inputErrorsArray.push(`${inputLabel} form allows ${moreLessEqual} than ${conditionNumber} characters.`);
-	} else {
-		inputErrorsArray = [];
 	}
 }
 
@@ -154,8 +148,6 @@ function onlyLettersValidation(input, inputErrorsArray, inputLabel) {
 		inputErrorsArray.push(
 			`${inputLabel} form must not contain blank spaces or special characters like ' . ', ' , ', ' / ', etc`
 		);
-	} else {
-		inputErrorsArray = [];
 	}
 }
 
@@ -176,8 +168,6 @@ function onlyNumbersValidation(input, inputErrorsArray, inputLabel) {
 		inputErrorsArray.push(
 			`${inputLabel} form must not contain blank spaces or special characters like ' . ', ' , ', ' / ', etc`
 		);
-	} else {
-		inputErrorsArray = [];
 	}
 }
 
@@ -193,8 +183,6 @@ function addressPatternValidation(input, inputErrorsArray) {
 		}).length != 1
 	) {
 		inputErrorsArray.push("Address form should have one blank space");
-	} else {
-		inputErrorsArray = [];
 	}
 }
 
@@ -203,8 +191,6 @@ function emailPatternValidation(input, inputErrorsArray, regEx) {
 	isEmpty(input, inputErrorsArray, "Email");
 	if (!regEx.test(input.value)) {
 		inputErrorsArray.push("Email pattern doesn't match.");
-	} else {
-		inputErrorsArray = [];
 	}
 }
 
@@ -444,6 +430,7 @@ postCodeValidation();
 emailValidation();
 passwordValidation();
 repeatPasswordValidation();
+
 // Register Button
 function registerButton() {
 	var errorMessage = "You couldn't sign up. There were some errors :( \n\n";
@@ -467,26 +454,27 @@ function registerButton() {
 		signUpErrorPassConfirm.innerHTML = "";
 
 		isEmpty(signUpName, nameErrors, "Name");
-		errorsRender(signUpName, nameErrors, signUpErrorName);
 		isEmpty(signUpLastName, lastNameErrors, "Last name");
-		errorsRender(signUpLastName, lastNameErrors, signUpErrorLastName);
 		isEmpty(signUpDni, dniErrors, "DNI");
-		errorsRender(signUpDni, dniErrors, signUpErrorDni);
 		isEmpty(signUpBornDate, bornDateErrors, "Born date");
-		errorsRender(signUpBornDate, bornDateErrors, signUpErrorBornDate);
 		isEmpty(signUpPhone, phoneErrors, "Phone");
-		errorsRender(signUpPhone, phoneErrors, signUpErrorPhone);
 		isEmpty(signUpAddress, addressErrors, "Address");
-		errorsRender(signUpAddress, addressErrors, signUpErrorAddress);
 		isEmpty(signUpTown, townErrors, "Town");
-		errorsRender(signUpTown, townErrors, signUpErrorTown);
 		isEmpty(signUpPostCode, postCodeErrors, "Post code");
-		errorsRender(signUpPostCode, postCodeErrors, signUpErrorPostCode);
 		isEmpty(signUpEmail, emailErrors, "Email");
-		errorsRender(signUpEmail, emailErrors, signUpErrorEmail);
 		isEmpty(signUpPass, passErrors, "Password");
-		errorsRender(signUpPass, passErrors, signUpErrorPass);
 		isEmpty(signUpPassConfirm, passConfirmErrors, "Password confirmation");
+
+		errorsRender(signUpName, nameErrors, signUpErrorName);
+		errorsRender(signUpLastName, lastNameErrors, signUpErrorLastName);
+		errorsRender(signUpDni, dniErrors, signUpErrorDni);
+		errorsRender(signUpBornDate, bornDateErrors, signUpErrorBornDate);
+		errorsRender(signUpPhone, phoneErrors, signUpErrorPhone);
+		errorsRender(signUpAddress, addressErrors, signUpErrorAddress);
+		errorsRender(signUpTown, townErrors, signUpErrorTown);
+		errorsRender(signUpPostCode, postCodeErrors, signUpErrorPostCode);
+		errorsRender(signUpEmail, emailErrors, signUpErrorEmail);
+		errorsRender(signUpPass, passErrors, signUpErrorPass);
 		errorsRender(signUpPassConfirm, passConfirmErrors, signUpErrorPassConfirm);
 
 		if (
