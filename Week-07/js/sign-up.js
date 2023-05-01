@@ -22,7 +22,6 @@ var signUpErrorEmail = document.getElementById("email-error-list");
 var signUpErrorPass = document.getElementById("pass-error-list");
 var signUpErrorPassConfirm = document.getElementById("pass-rep-error-list");
 
-// Errors Array
 var nameErrors = [];
 var lastNameErrors = [];
 var dniErrors = [];
@@ -35,64 +34,21 @@ var emailErrors = [];
 var passErrors = [];
 var passConfirmErrors = [];
 
-// Symbols Array
-var symbolsArray = [
-	" ",
-	".",
-	",",
-	"[",
-	"]",
-	"{",
-	"}",
-	"'",
-	'"',
-	"´",
-	"*",
-	"+",
-	"-",
-	"_",
-	";",
-	":",
-	"|",
-	"°",
-	"!",
-	"#",
-	"$",
-	"%",
-	"&",
-	"/",
-	"(",
-	")",
-	"=",
-	"¿",
-	"?",
-	"¡",
-	"¨",
-	"~",
-	"^",
-	"`",
-	"¬",
-];
-
-// RegEx Pattern
 var signUpEmailPattern = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
 
 var signUpBaseUrl = "https://api-rest-server.vercel.app/signup";
 
-// Input Style on Error
 function ifErrorInputStyle(input, inputErrorsArray) {
 	if (inputErrorsArray.length > 0) {
 		input.className = "sign-up-input-error";
 	}
 }
 
-// Focus event
 function focusEvent(input, inputErrorsList) {
 	inputErrorsList.innerHTML = "";
 	input.className = "sign-up-input";
 }
 
-// Is Empty Validation
 function isEmpty(input, inputErrorsArray, inputLabel) {
 	if (input.value === "" || !input.value) {
 		if (!inputErrorsArray.includes(`${inputLabel} form is empty.`)) {
@@ -101,7 +57,6 @@ function isEmpty(input, inputErrorsArray, inputLabel) {
 	}
 }
 
-// Has Number and Letters Validation
 function hasNumberAndLetters(input, inputErrorsArray, inputLabel) {
 	if (
 		input.value.split("").filter(function (char) {
@@ -115,14 +70,12 @@ function hasNumberAndLetters(input, inputErrorsArray, inputLabel) {
 	}
 }
 
-// Characters Number Validation
-function charactersNumberValidation(inputLabel, input, moreLessEqual, conditionNumber, inputErrorsArray) {
+function numberOfCharactersValidation(inputLabel, input, moreLessEqual, conditionNumber, inputErrorsArray) {
 	if (input.value.length <= conditionNumber) {
 		inputErrorsArray.push(`${inputLabel} form allows ${moreLessEqual} than ${conditionNumber} characters.`);
 	}
 }
 
-// Errors List Render Function
 function errorsRender(input, inputErrorsArray, inputErrorsList) {
 	ifErrorInputStyle(input, inputErrorsArray);
 
@@ -131,7 +84,6 @@ function errorsRender(input, inputErrorsArray, inputErrorsList) {
 	}
 }
 
-// Only Letters Validation Function
 function onlyLettersValidation(input, inputErrorsArray, inputLabel) {
 	isEmpty(input, inputErrorsArray, inputLabel);
 	if (
@@ -142,7 +94,13 @@ function onlyLettersValidation(input, inputErrorsArray, inputLabel) {
 		inputErrorsArray.push(`${inputLabel} form allows only letters.`);
 	} else if (
 		input.value.split("").filter(function (char) {
-			return symbolsArray.indexOf(char) != -1;
+			return (
+				char.charCodeAt() < 48 ||
+				(char.charCodeAt() > 57 && char.charCodeAt() < 65) ||
+				(char.charCodeAt() > 90 && char.charCodeAt() < 97) ||
+				char.charCodeAt() > 122 ||
+				char.charCodeAt() == 32
+			);
 		}).length > 0
 	) {
 		inputErrorsArray.push(
@@ -151,7 +109,6 @@ function onlyLettersValidation(input, inputErrorsArray, inputLabel) {
 	}
 }
 
-// Only Numbers Validation Function
 function onlyNumbersValidation(input, inputErrorsArray, inputLabel) {
 	isEmpty(input, inputErrorsArray, inputLabel);
 	if (
@@ -162,7 +119,13 @@ function onlyNumbersValidation(input, inputErrorsArray, inputLabel) {
 		inputErrorsArray.push(`${inputLabel} form allows only numbers.`);
 	} else if (
 		input.value.split("").filter(function (char) {
-			return symbolsArray.indexOf(char) != -1;
+			return (
+				char.charCodeAt() < 48 ||
+				(char.charCodeAt() > 57 && char.charCodeAt() < 65) ||
+				(char.charCodeAt() > 90 && char.charCodeAt() < 97) ||
+				char.charCodeAt() > 122 ||
+				char.charCodeAt() == 32
+			);
 		}).length > 0
 	) {
 		inputErrorsArray.push(
@@ -171,7 +134,6 @@ function onlyNumbersValidation(input, inputErrorsArray, inputLabel) {
 	}
 }
 
-// Address Validation Function
 function addressPatternValidation(input, inputErrorsArray) {
 	isEmpty(input, inputErrorsArray, "Address");
 	hasNumberAndLetters(input, inputErrorsArray, "Address");
@@ -186,7 +148,6 @@ function addressPatternValidation(input, inputErrorsArray) {
 	}
 }
 
-// Email Validation Function
 function emailPatternValidation(input, inputErrorsArray, regEx) {
 	isEmpty(input, inputErrorsArray, "Email");
 	if (!regEx.test(input.value)) {
@@ -194,7 +155,6 @@ function emailPatternValidation(input, inputErrorsArray, regEx) {
 	}
 }
 
-//Local Storage Save Function
 function setLocalStorage(element) {
 	localStorage.setItem("id", element.data.id);
 	localStorage.setItem("name", element.data.name);
@@ -209,7 +169,6 @@ function setLocalStorage(element) {
 	localStorage.setItem("password", element.data.password);
 }
 
-//Local Storage Get Function
 function getLocalStorage() {
 	var storageName = localStorage.getItem("name");
 	var storageLastName = localStorage.getItem("lastName");
@@ -247,20 +206,18 @@ function getLocalStorage() {
 	}
 }
 
-// Name Validation
 function nameValidation() {
 	signUpName.addEventListener("focus", function () {
 		focusEvent(signUpName, signUpErrorName);
 		nameErrors = [];
 	});
 	signUpName.addEventListener("blur", function () {
-		charactersNumberValidation("Name", signUpName, "more", 3, nameErrors);
+		numberOfCharactersValidation("Name", signUpName, "more", 3, nameErrors);
 		onlyLettersValidation(signUpName, nameErrors, "Name");
 		errorsRender(signUpName, nameErrors, signUpErrorName);
 	});
 }
 
-// Last Name Validation
 function lastNameValidation() {
 	signUpLastName.addEventListener("focus", function () {
 		focusEvent(signUpLastName, signUpErrorLastName);
@@ -268,13 +225,12 @@ function lastNameValidation() {
 	});
 
 	signUpLastName.addEventListener("blur", function () {
-		charactersNumberValidation("Last name", signUpLastName, "more", 3, lastNameErrors);
+		numberOfCharactersValidation("Last name", signUpLastName, "more", 3, lastNameErrors);
 		onlyLettersValidation(signUpLastName, lastNameErrors, "Last name");
 		errorsRender(signUpLastName, lastNameErrors, signUpErrorLastName);
 	});
 }
 
-// DNI Validation
 function dniValidation() {
 	signUpDni.addEventListener("focus", function () {
 		focusEvent(signUpDni, signUpErrorDni);
@@ -282,13 +238,12 @@ function dniValidation() {
 	});
 
 	signUpDni.addEventListener("blur", function () {
-		charactersNumberValidation("DNI", signUpDni, "more", 7, dniErrors);
+		numberOfCharactersValidation("DNI", signUpDni, "more", 7, dniErrors);
 		onlyNumbersValidation(signUpDni, dniErrors, "DNI");
 		errorsRender(signUpDni, dniErrors, signUpErrorDni);
 	});
 }
 
-// Born Date Validation
 var formattedDate = [];
 function bornDateValidation() {
 	signUpBornDate.addEventListener("focus", function () {
@@ -308,7 +263,6 @@ function bornDateValidation() {
 	});
 }
 
-// Phone Validation
 function phoneValidation() {
 	signUpPhone.addEventListener("focus", function () {
 		focusEvent(signUpPhone, signUpErrorPhone);
@@ -326,7 +280,6 @@ function phoneValidation() {
 	});
 }
 
-// Address Validation
 function addressValidation() {
 	signUpAddress.addEventListener("focus", function () {
 		focusEvent(signUpAddress, signUpErrorAddress);
@@ -334,13 +287,12 @@ function addressValidation() {
 	});
 
 	signUpAddress.addEventListener("blur", function () {
-		charactersNumberValidation("Address", signUpAddress, "more", 4, addressErrors);
+		numberOfCharactersValidation("Address", signUpAddress, "more", 4, addressErrors);
 		addressPatternValidation(signUpAddress, addressErrors);
 		errorsRender(signUpAddress, addressErrors, signUpErrorAddress);
 	});
 }
 
-// Town Validation
 function townValidation() {
 	signUpTown.addEventListener("focus", function () {
 		focusEvent(signUpTown, signUpErrorTown);
@@ -349,12 +301,11 @@ function townValidation() {
 
 	signUpTown.addEventListener("blur", function () {
 		isEmpty(signUpTown, townErrors, "Town");
-		charactersNumberValidation("Town", signUpTown, "more", 3, townErrors);
+		numberOfCharactersValidation("Town", signUpTown, "more", 3, townErrors);
 		errorsRender(signUpTown, townErrors, signUpErrorTown);
 	});
 }
 
-// Post Code Validation
 function postCodeValidation() {
 	signUpPostCode.addEventListener("focus", function () {
 		focusEvent(signUpPostCode, signUpErrorPostCode);
@@ -373,7 +324,6 @@ function postCodeValidation() {
 	});
 }
 
-// Email Validation
 function emailValidation() {
 	signUpEmail.addEventListener("focus", function () {
 		focusEvent(signUpEmail, signUpErrorEmail);
@@ -386,7 +336,6 @@ function emailValidation() {
 	});
 }
 
-// Password Validation
 function passwordValidation() {
 	signUpPass.addEventListener("focus", function () {
 		focusEvent(signUpPass, signUpErrorPass);
@@ -395,13 +344,12 @@ function passwordValidation() {
 
 	signUpPass.addEventListener("blur", function () {
 		isEmpty(signUpPass, passErrors, "Password");
-		charactersNumberValidation("Password", signUpPass, "more", 7, passErrors);
+		numberOfCharactersValidation("Password", signUpPass, "more", 7, passErrors);
 		hasNumberAndLetters(signUpPass, passErrors, "Password");
 		errorsRender(signUpPass, passErrors, signUpErrorPass);
 	});
 }
 
-// Repeat Password Validation
 function repeatPasswordValidation() {
 	signUpPassConfirm.addEventListener("focus", function () {
 		focusEvent(signUpPassConfirm, signUpErrorPassConfirm);
@@ -418,7 +366,6 @@ function repeatPasswordValidation() {
 	});
 }
 
-// Running Validations
 nameValidation();
 lastNameValidation();
 dniValidation();
@@ -431,7 +378,6 @@ emailValidation();
 passwordValidation();
 repeatPasswordValidation();
 
-// Register Button
 function registerButton() {
 	var errorMessage = "You couldn't sign up. There were some errors :( \n\n";
 	var message = "You are signed up! \n\n";

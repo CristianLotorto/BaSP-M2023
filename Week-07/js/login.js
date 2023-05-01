@@ -8,44 +8,6 @@ var loginErrorListPass = document.getElementById("pass-error-list");
 var loginEmailErrors = [];
 var loginPassErrors = [];
 
-var symbolsArray = [
-	" ",
-	".",
-	",",
-	"[",
-	"]",
-	"{",
-	"}",
-	"'",
-	'"',
-	"´",
-	"*",
-	"+",
-	"-",
-	"_",
-	";",
-	":",
-	"|",
-	"°",
-	"!",
-	"#",
-	"$",
-	"%",
-	"&",
-	"/",
-	"(",
-	")",
-	"=",
-	"¿",
-	"?",
-	"¡",
-	"¨",
-	"~",
-	"^",
-	"`",
-	"¬",
-];
-
 var loginBaseUrl = "https://api-rest-server.vercel.app/login";
 var loginEmailPattern = /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/;
 
