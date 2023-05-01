@@ -4,6 +4,10 @@ var loginEmail = document.getElementById("login-email");
 var loginPass = document.getElementById("login-pass");
 var loginErrorListEmail = document.getElementById("email-error-list");
 var loginErrorListPass = document.getElementById("pass-error-list");
+var loginModal = document.getElementById("login-modal");
+var loginModalContainer = document.getElementById("modal-content");
+var loginModalText = document.getElementById("modal-text");
+var closeModal = document.getElementById("modal-close");
 
 var loginEmailErrors = [];
 var loginPassErrors = [];
@@ -98,7 +102,7 @@ function loginButton() {
 	loginForm.addEventListener("submit", function (e) {
 		e.preventDefault();
 
-		var loginErrorMessage = "You couldn't sign in. There were some errors :( \n\n";
+		var loginErrorMessage = "Incorrect Data Entry. There were some errors :( \n\n";
 
 		loginErrorListEmail.innerHTML = "";
 		loginErrorListPass.innerHTML = "";
@@ -116,31 +120,40 @@ function loginButton() {
 			if (loginPassErrors.length > 0) {
 				loginErrorMessage += `Password:${loginPassErrors.join("\n")}`;
 			}
-			alert(loginErrorMessage);
+			loginModalContainer.className = "error-background";
+			loginModalText.innerText = loginErrorMessage;
+			loginModal.style.display = "flex";
 		} else {
-			alert(
-				"You are signed in! \n\n" +
-					"Email: " +
-					loginEmail.value.trim() +
-					"\n" +
-					"Password: " +
-					loginPass.value.trim()
-			);
+			loginModalContainer.className = "success-background";
+			loginModalText.innerText =
+				"Correct Data Entry! \n\n" +
+				"Email: " +
+				loginEmail.value.trim() +
+				"\n" +
+				"Password: " +
+				loginPass.value.trim();
+			loginModal.style.display = "flex";
 
-			fetch(`${loginBaseUrl}?email=${loginEmail.value.trim()}&password=${loginPass.value.trim()}`)
-				.then(function (response) {
-					return response.json();
-				})
-				.then(function (data) {
-					if (data.success) {
-						alert("Request has been successful!\n" + data.msg);
-					} else {
-						throw new Error("Request has been rejected :/ \n" + data.msg);
-					}
-				})
-				.catch(function (err) {
-					alert(err);
-				});
+			setTimeout(function () {
+				fetch(`${loginBaseUrl}?email=${loginEmail.value.trim()}&password=${loginPass.value.trim()}`)
+					.then(function (response) {
+						return response.json();
+					})
+					.then(function (data) {
+						if (data.success) {
+							loginModalContainer.className = "success-background";
+							loginModalText.innerText = "Request has been successful!\n" + data.msg;
+							loginModal.style.display = "flex";
+						} else {
+							throw new Error("Request has been rejected :/ \n" + data.msg);
+						}
+					})
+					.catch(function (err) {
+						loginModalContainer.className = "error-background";
+						loginModalText.innerText = err;
+						loginModal.style.display = "flex";
+					});
+			}, 3000);
 		}
 		loginEmailErrors = [];
 		loginPassErrors = [];
@@ -148,3 +161,13 @@ function loginButton() {
 }
 
 loginButton();
+
+closeModal.addEventListener("click", function () {
+	loginModal.style.display = "none";
+});
+
+window.addEventListener("click", function (event) {
+	if (event.target == loginModal) {
+		loginModal.style.display = "none";
+	}
+});
