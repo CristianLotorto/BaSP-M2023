@@ -21,6 +21,10 @@ var signUpErrorPostCode = document.getElementById("postcode-error-list");
 var signUpErrorEmail = document.getElementById("email-error-list");
 var signUpErrorPass = document.getElementById("pass-error-list");
 var signUpErrorPassConfirm = document.getElementById("pass-rep-error-list");
+var signUpModal = document.getElementById("sign-up-modal");
+var signUpModalContainer = document.getElementById("modal-content");
+var signUpModalText = document.getElementById("modal-text");
+var closeModal = document.getElementById("modal-close");
 
 var nameErrors = [];
 var lastNameErrors = [];
@@ -180,6 +184,7 @@ function getLocalStorage() {
 	var storageZip = localStorage.getItem("zip");
 	var storageEmail = localStorage.getItem("email");
 	var storagePass = localStorage.getItem("password");
+	formattedDateMMDDYYYY.push(localStorage.getItem("dob"));
 
 	if (
 		storageName &&
@@ -244,7 +249,8 @@ function dniValidation() {
 	});
 }
 
-var formattedDate = [];
+var formattedDateDDMMYYYY = [];
+var formattedDateMMDDYYYY = [];
 function bornDateValidation() {
 	signUpBornDate.addEventListener("focus", function () {
 		focusEvent(signUpBornDate, signUpErrorBornDate);
@@ -256,9 +262,8 @@ function bornDateValidation() {
 		isEmpty(signUpBornDate, bornDateErrors, "Born date");
 
 		var dateEl = signUpBornDate.value.split("-");
-		formattedDate.push(dateEl[2] + "/" + dateEl[1] + "/" + dateEl[0]);
-		formattedDate.push(dateEl[1] + "/" + dateEl[2] + "/" + dateEl[0]);
-
+		formattedDateDDMMYYYY.push(dateEl[2] + "/" + dateEl[1] + "/" + dateEl[0]);
+		formattedDateMMDDYYYY.push(dateEl[1] + "/" + dateEl[2] + "/" + dateEl[0]);
 		errorsRender(signUpBornDate, bornDateErrors, signUpErrorBornDate);
 	});
 }
@@ -379,13 +384,13 @@ passwordValidation();
 repeatPasswordValidation();
 
 function registerButton() {
-	var errorMessage = "You couldn't sign up. There were some errors :( \n\n";
-	var message = "You are signed up! \n\n";
+	var errorMessage;
+	var message;
 	signUpForm.addEventListener("submit", function (e) {
 		e.preventDefault();
 
-		errorMessage = "You couldn't sign up. There were some errors :( \n\n";
-		message = "You are signed up! \n\n";
+		errorMessage = "Incorrect Data Entry.\n There were some errors :( \n\n";
+		message = "Correct Data Entry! \n\n";
 
 		signUpErrorName.innerHTML = "";
 		signUpErrorLastName.innerHTML = "";
@@ -470,13 +475,15 @@ function registerButton() {
 				errorMessage += `Pass Confirmation: ${passConfirmErrors.join("\n")} \n`;
 			}
 
-			alert(errorMessage);
+			signUpModalContainer.className = "error-background";
+			signUpModalText.innerText = errorMessage;
+			signUpModal.style.display = "flex";
 		} else {
 			message += `
 					Name: ${signUpName.value}\n
 					Last name: ${signUpLastName.value}\n
 					DNI: ${signUpDni.value}\n
-					Born date: ${formattedDate[0]}\n
+					Born date: ${formattedDateDDMMYYYY}\n
 					Phone: ${signUpPhone.value}\n
 					Address: ${signUpAddress.value}\n
 					Town: ${signUpTown.value}\n
@@ -484,39 +491,49 @@ function registerButton() {
 					Email: ${signUpEmail.value}\n
 					Password: ${signUpPass.value}`;
 
-			alert(message);
+			signUpModalContainer.className = "success-background";
+			signUpModalText.innerText = message;
+			signUpModal.style.display = "flex";
 
-			fetch(
-				`${signUpBaseUrl}?
-				name=${signUpName.value}&
-				lastName=${signUpLastName.value}&
-				dni=${signUpDni.value}&
-				dob=${formattedDate[1]}&
-				phone=${signUpPhone.value}&
-				address=${signUpAddress.value}&
-				city=${signUpTown.value}&
-				zip=${signUpPostCode.value}&
-				email=${signUpEmail.value}&
-				password=${signUpPass.value}`
-			)
-				.then(function (response) {
-					return response.json();
-				})
-				.then(function (data) {
-					if (data.success) {
-						alert("Sign up has been successful!\n" + data.msg);
-						setLocalStorage(data);
-					} else {
-						var responseErrorMsg;
-						data.errors.forEach((element) => {
-							responseErrorMsg += element.msg + "\n";
-						});
-						throw new Error("Sign up has been rejected :/ \n" + responseErrorMsg);
-					}
-				})
-				.catch(function (err) {
-					alert(err);
-				});
+			setTimeout(function () {
+				fetch(
+					`${signUpBaseUrl}?
+					name=${signUpName.value}&
+					lastName=${signUpLastName.value}&
+					dni=${signUpDni.value}&
+					dob=${formattedDateMMDDYYYY}&
+					phone=${signUpPhone.value}&
+					address=${signUpAddress.value}&
+					city=${signUpTown.value}&
+					zip=${signUpPostCode.value}&
+					email=${signUpEmail.value}&
+					password=${signUpPass.value}`
+				)
+					.then(function (response) {
+						return response.json();
+					})
+					.then(function (data) {
+						if (data.success) {
+							signUpModalContainer.className = "success-background";
+							signUpModalText.innerText = "Sign up has been successful!.\n" + data.msg;
+							signUpModal.style.display = "flex";
+							setLocalStorage(data);
+						} else {
+							var responseErrorMsg;
+							data.errors.forEach((element) => {
+								if (element.msg) {
+									responseErrorMsg += element.msg + "\n";
+								}
+							});
+							throw new Error("Sign up has been rejected :/. \n" + responseErrorMsg);
+						}
+					})
+					.catch(function (err) {
+						signUpModalContainer.className = "error-background";
+						signUpModalText.innerText = err;
+						signUpModal.style.display = "flex";
+					});
+			}, 3000);
 		}
 		nameErrors = [];
 		lastNameErrors = [];
@@ -535,3 +552,13 @@ function registerButton() {
 registerButton();
 
 window.onload = getLocalStorage();
+
+closeModal.addEventListener("click", function () {
+	signUpModal.style.display = "none";
+});
+
+window.addEventListener("click", function (event) {
+	if (event.target == signUpModal) {
+		signUpModal.style.display = "none";
+	}
+});

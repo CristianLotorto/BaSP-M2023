@@ -90,10 +90,7 @@ h1 {
 	background-color: var(--background-gray);
 }
 
-.hide-nav {
-	display: none;
-}
-
+.hide-nav,
 .hide-p {
 	display: none;
 }
