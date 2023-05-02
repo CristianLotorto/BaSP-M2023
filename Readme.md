@@ -132,6 +132,27 @@ We worked in W04 CSS Flexbox project corrections following tutors advice.
 
 Hope you enjoy the results! :boom:
 
+## Week 07: JS ECMAScript 6 Validations. Asynchronous HTTP Requests :handshake:
+
+### We've made asynchronous requests to an API (finally) using **ECMAScript 6** methods.:grin:
+
+These GET requests were made by URL query params in a **fetch** method:
+
+```
+fetch("URL?key1=value1&key2=value2")
+.then(function (response) {return response.json()})
+.then(function (data) {return data})
+.catch(function (err) {return err})
+```
+
+With this structure, though an URL, we make a request to an API. The API manages the request and gives us a response. This response is turned into a JSON format object for finally been used to take this object information and use it into our project.
+
+Also, we worked in modals to show the data responses with customized styles. We had really cool outcomes. :star_struck:
+
+As always, you're invited to [take a look.](https://cristianlotorto.github.io/BaSP-M2023/Week-07/views/index.html) :see_no_evil: :hear_no_evil: :speak_no_evil:
+
+Hope you enjoy the results. :bomb:
+
 ## Author
 
 -   Cristian Lotorto
