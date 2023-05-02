@@ -136,7 +136,7 @@ Hope you enjoy the results! :boom:
 
 ### We've made asynchronous requests to an API (finally) using **ECMAScript 6** methods.:grin:
 
-These GET requests were made by URL query params in a **fetch** method:
+These GET requests were made by an URL with query params in a **fetch** method:
 
 ```
 fetch("URL?key1=value1&key2=value2")
